@@ -1,0 +1,11 @@
+# Plugin-Slug
+plugin.slug=nested-ordered-lists
+
+# version number to use
+plugin.version=
+
+# set path to npm-binary
+npm.path=
+
+# set max list-level to generate
+list.max_level=
