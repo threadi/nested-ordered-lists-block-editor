@@ -1,6 +1,6 @@
-# Nested ordered lists for Gutenberg
+# Nested ordered lists
 
-This repository is the database for the plugin _Nested ordered lists for Gutenberg_. This provides a Gutenberg block-addition to use the list-block with nested ordered lists and some list-styles.
+This repository is the database for the plugin _Nested ordered lists_. This provides a Gutenberg block-addition to use the list-block with nested ordered lists and some list-styles.
 
 ## Usage
 
@@ -25,7 +25,7 @@ I recommend to use [PoEdit](https://poedit.net/) to translate texts for this plu
 
 Run in main directory:
 
-`wp i18n make-pot . languages/nested-ordered-lists-gutenberg.pot --exclude=src`
+`wp i18n make-pot . languages/nested-ordered-lists-block-editor.pot --exclude=src`
 
 ### update translation-file
 

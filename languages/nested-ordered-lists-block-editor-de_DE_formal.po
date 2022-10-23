@@ -4,9 +4,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Nested Ordered Lists for Gutenberg @@VersionNumber@@\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/nested-ordered-"
-"lists-gutenberg\n"
-"POT-Creation-Date: 2022-10-16T20:48:23+02:00\n"
-"PO-Revision-Date: 2022-10-16 20:52+0200\n"
+"lists-block-editor\n"
+"POT-Creation-Date: 2022-10-23T13:11:25+02:00\n"
+"PO-Revision-Date: 2022-10-23 13:12+0200\n"
 "Last-Translator: Thomas Zwirner <info@thomaszwirner.de>\n"
 "Language-Team: \n"
 "Language: de\n"
@@ -15,17 +15,17 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.0.1\n"
-"X-Domain: nested-ordered-lists-gutenberg\n"
+"X-Domain: nested-ordered-lists-gb\n"
 
 #. Plugin Name of the plugin
-msgid "Nested Ordered Lists for Gutenberg"
-msgstr "Verschachtelte nummerierte Listen für Gutenberg"
+msgid "Nested Ordered Lists for Block Editor"
+msgstr "Verschachtelte nummerierte Listen für den Block Editor"
 
 #. Description of the plugin
-msgid "Adds support for nested ordered lists in Gutenbergs List Block."
+msgid "Adds support for nested ordered lists in List Block."
 msgstr ""
-"Fügt Unterstützung für verschachtelte nummerierte Listen in Gutenbergs List "
-"Block hinzu."
+"Fügt Unterstützung für verschachtelte nummerierte Listen im List Block "
+"hinzu."
 
 #. Author of the plugin
 msgid "Thomas Zwirner"
@@ -35,42 +35,47 @@ msgstr "Thomas Zwirner"
 msgid "https://www.thomaszwirner.de"
 msgstr "https://www.thomaszwirner.de"
 
-#: attributes/index.js:260 attributes/index.js:121
-msgid "Set start level above first"
-msgstr "Anfangswert oberhalb setzen"
-
-#: attributes/index.js:266 attributes/index.js:127
-msgid "Use start level %s"
-msgstr "Verwende Start-Level %s"
-
-#: attributes/index.js:275 attributes/index.js:138
-msgid "start value for level %s"
-msgstr "Wert für Start-Level %s"
-
-#: attributes/index.js:506 attributes/index.js:355
+#: attributes/index.js:1
 msgid "lowercase letters style"
 msgstr "Style mit Kleinbuchstaben"
 
-#: attributes/index.js:511 attributes/index.js:361
+#: attributes/index.js:1
 msgid "uppercase letters style"
 msgstr "Style mit Großbuchstaben"
 
-#: attributes/index.js:516 attributes/index.js:367
+#: attributes/index.js:1
 msgid "lowercase roman style"
 msgstr "kleine römische Ziffern"
 
-#: attributes/index.js:521 attributes/index.js:373
+#: attributes/index.js:1
 msgid "uppercase roman style"
 msgstr "große römische Ziffern"
 
-#: attributes/index.js:525 attributes/index.js:381
+#: attributes/index.js:1
 msgid "Advanced List Controls"
 msgstr "Erweiterte Listen-Eigenschaften"
 
-#: attributes/index.js:527 attributes/index.js:384
+#: attributes/index.js:1
 msgid "Use nested ordered lists"
 msgstr "Verwende verschachtelte nummerierte Listen"
 
-#: attributes/index.js:535 attributes/index.js:394
+#: attributes/index.js:1
 msgid "with indentation"
 msgstr "mit Einrückung"
+
+#: attributes/index.js:1
+msgid "Set start level above first"
+msgstr "Anfangswert oberhalb setzen"
+
+#: attributes/index.js:1
+msgid "Use start level %s"
+msgstr "Verwende Start-Level %s"
+
+#: attributes/index.js:1
+msgid "start value for level %s"
+msgstr "Wert für Start-Level %s"
+
+#, fuzzy
+#~| msgid "Use nested ordered lists"
+#~ msgid "Nested Ordered Lists"
+#~ msgstr "Verwende verschachtelte nummerierte Listen"

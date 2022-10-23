@@ -103,13 +103,13 @@ function createElements(n, object){
     Object.keys(object.attributes.startlevel).forEach(function(i) {
         let title = '';
         if( !object.attributes.start ) {
-            title = __('Set start level above first', 'nested-ordered-lists-gutenberg');
+            title = __('Set start level above first', 'nested-ordered-lists-block-editor');
         }
 
         // add checkbox to enable this level
         elements.push(
             <CheckboxControl key={[i] + 'checkbox'}
-                             label={sprintf(__('Use start level %s', 'nested-ordered-lists-gutenberg'), i)}
+                             label={sprintf(__('Use start level %s', 'nested-ordered-lists-block-editor'), i)}
                              checked={object.attributes.startlevel[i].active}
                              onChange={value => onChangeLevelAttributeActive( object, i, value )}
                              disabled={!object.attributes.start}
@@ -120,7 +120,7 @@ function createElements(n, object){
         // add input-field for start-number
         elements.push(
             <NumberControl key={[i] + 'number'}
-                           label={sprintf(__('start value for level %s', 'nested-ordered-lists-gutenberg'), i)}
+                           label={sprintf(__('start value for level %s', 'nested-ordered-lists-block-editor'), i)}
                            labelPosition='top'
                            isShiftStepEnabled={true}
                            value={object.attributes.startlevel[i].value}
@@ -134,17 +134,17 @@ function createElements(n, object){
         // TODO add select-field to choose the type for this level
         /*elements.push(
             <SelectControl key={[i] + 'type'}
-                           label={sprintf(__('type for level %s', 'nested-ordered-lists-gutenberg'), i)}
+                           label={sprintf(__('type for level %s', 'nested-ordered-lists-block-editor'), i)}
                            value={object.attributes.startlevel[i].type}
                            min={0}
                            disabled={!object.attributes.start}
                            title={title}
                            onChange={value => onChangeLevelAttributeType( object, i, value )}
                            options={ [
-                               { label: __('lowercase letters style', 'nested-ordered-lists-gutenberg'), value: 'a1' },
-                               { label: __('uppercase letters style', 'nested-ordered-lists-gutenberg'), value: 'a2' },
-                               { label: __('lowercase roman numbers style', 'nested-ordered-lists-gutenberg'), value: 'i1' },
-                               { label: __('uppercase roman numbers style', 'nested-ordered-lists-gutenberg'), value: 'i2' },
+                               { label: __('lowercase letters style', 'nested-ordered-lists-block-editor'), value: 'a1' },
+                               { label: __('uppercase letters style', 'nested-ordered-lists-block-editor'), value: 'a2' },
+                               { label: __('lowercase roman numbers style', 'nested-ordered-lists-block-editor'), value: 'i1' },
+                               { label: __('uppercase roman numbers style', 'nested-ordered-lists-block-editor'), value: 'i2' },
                            ] }
             />
         )*/
@@ -235,7 +235,7 @@ wp.hooks.addFilter(
 );
 
 /**
- * Define additional block-elements for output in Gutenberg.
+ * Define additional block-elements for output in Block Editor.
  */
 const setAttributesInEditor = createHigherOrderComponent( ( BlockListBlock ) => {
     return ( props ) => {
@@ -337,25 +337,25 @@ const addOptionInSidebar = createHigherOrderComponent( ( BlockEdit ) => {
                     <ToolbarGroup>
                         <ToolbarButton
                             icon={ icons.lowerAlpha }
-                            label={ __( 'lowercase letters style', 'nested-ordered-lists-gutenberg' ) }
+                            label={ __( 'lowercase letters style', 'nested-ordered-lists-block-editor' ) }
                             isActive={attributes.type === 'a1'}
                             onClick={ value => onClickAttributeType('a1') }
                         />
                         <ToolbarButton
                             icon= { icons.upperAlpha }
-                            label={ __( 'uppercase letters style', 'nested-ordered-lists-gutenberg' ) }
+                            label={ __( 'uppercase letters style', 'nested-ordered-lists-block-editor' ) }
                             isActive={attributes.type === 'a2'}
                             onClick={ value => onClickAttributeType('a2') }
                         />
                         <ToolbarButton
                             icon={ icons.lowerRoman }
-                            label={ __( 'lowercase roman style', 'nested-ordered-lists-gutenberg' ) }
+                            label={ __( 'lowercase roman style', 'nested-ordered-lists-block-editor' ) }
                             isActive={attributes.type === 'i1'}
                             onClick={ value => onClickAttributeType('i1') }
                         />
                         <ToolbarButton
                             icon={ icons.upperRoman }
-                            label={ __( 'uppercase roman style', 'nested-ordered-lists-gutenberg' ) }
+                            label={ __( 'uppercase roman style', 'nested-ordered-lists-block-editor' ) }
                             isActive={attributes.type === 'i2'}
                             onClick={ value => onClickAttributeType('i2') }
                         />
@@ -363,10 +363,10 @@ const addOptionInSidebar = createHigherOrderComponent( ( BlockEdit ) => {
                 </BlockControls>}
                 {attributes.ordered && <InspectorControls>
                     <PanelBody
-                        title={ __( 'Advanced List Controls', 'nested-ordered-lists-gutenberg' ) }
+                        title={ __( 'Advanced List Controls', 'nested-ordered-lists-block-editor' ) }
                     >
                         <CheckboxControl
-                            label={__('Use nested ordered lists', 'nested-ordered-lists-gutenberg')}
+                            label={__('Use nested ordered lists', 'nested-ordered-lists-block-editor')}
                             checked={ nestedList }
                             onChange={ ( value ) => {
                                 setAttributes( {
@@ -376,7 +376,7 @@ const addOptionInSidebar = createHigherOrderComponent( ( BlockEdit ) => {
                         />
                         {nestedList &&
                             <CheckboxControl
-                                label={__('with indentation', 'nested-ordered-lists-gutenberg')}
+                                label={__('with indentation', 'nested-ordered-lists-block-editor')}
                                 checked={listIntent}
                                 onChange={(value) => {
                                     setAttributes({

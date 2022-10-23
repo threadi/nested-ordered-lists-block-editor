@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="nested-ordered-lists-gutenberg" basedir="." default="help">
+<project name="nested-ordered-lists-block-editor" basedir="." default="help">
 
 	<!-- Include config file containing  -->
 	<loadproperties srcFile="build.properties" />
