@@ -1,8 +1,8 @@
 <?php
 
 /**
- * Plugin Name:       Nested Ordered Lists for Gutenberg
- * Description:       Adds support for nested ordered lists in Gutenbergs List Block.
+ * Plugin Name:       Nested Ordered Lists for Block Editor
+ * Description:       Adds support for nested ordered lists in List Block.
  * Requires at least: 6.0
  * Requires PHP:      7.4
  * Version:           @@VersionNumber@@
@@ -10,7 +10,7 @@
  * Author URI:		  https://www.thomaszwirner.de
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       nested-ordered-lists-gutenberg
+ * Text Domain:       nested-ordered-lists-block-editor
  */
 
 /**
@@ -20,7 +20,7 @@
  * @noinspection PhpUnused
  */
 function nolg_init() {
-	load_plugin_textdomain( 'nested-ordered-lists-gutenberg', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+	load_plugin_textdomain( 'nested-ordered-lists-block-editor', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 }
 add_action( 'init', 'nolg_init' );
 
@@ -40,7 +40,7 @@ function nolg_frontend_style() {
 add_action( 'wp_enqueue_scripts', 'nolg_frontend_style' );
 
 /**
- * Adds JavaScript-file for Gutenberg-editor to add the options.
+ * Adds JavaScript-file for Block editor to add the options.
  *
  * @return void
  * @noinspection PhpUnused
@@ -64,7 +64,7 @@ function nolg_assets() {
 	if ( function_exists( 'wp_set_script_translations' ) ) {
 		wp_set_script_translations(
 			'nolg-backend-js',
-			'nested-ordered-lists-gutenberg',
+			'nested-ordered-lists-block-editor',
 			plugin_dir_path( __FILE__ ) . '/languages/'
 		);
 	}

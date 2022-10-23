@@ -1,4 +1,4 @@
-=== Nested Ordered Lists for Gutenberg ===
+=== Nested Ordered Lists for Block Editor ===
 Contributors: threadi
 Tags: list, ordered list, numbered list
 Requires at least: 6.0
@@ -10,7 +10,7 @@ Stable tag: 1.0.0
 
 == Description ==
 
-The creation of numbered ordered lists such as 1.1, 1.2, 1.3, 2.1 etc. in Gutenberg is now possible! This plugin adds this missing function at the list block. Use individual numbers up to the 4th level. Also reversed lists (2.2, 2.1, 1.3, 1.2, 1.1 etc.) and additional list-styles (like upper- and lowercase roman and alphabet) are supported.
+The creation of numbered ordered lists such as 1.1, 1.2, 1.3, 2.1 etc. in Block Editor is now possible! This plugin adds this missing function at the list block. Use individual numbers up to the 4th level. Also reversed lists (2.2, 2.1, 1.3, 1.2, 1.1 etc.) and additional list-styles (like upper- and lowercase roman and alphabet) are supported.
 
 == Usage ==
 
@@ -23,14 +23,14 @@ The creation of numbered ordered lists such as 1.1, 1.2, 1.3, 2.1 etc. in Gutenb
 
 == Installation ==
 
-1. Upload "nested-ordered-lists-gutenberg" to the "/wp-content/plugins/" directory.
+1. Upload "nested-ordered-lists-block-editor" to the "/wp-content/plugins/" directory.
 2. Activate the plugin through the "Plugins" menu in WordPress.
 
 == Frequently Asked Questions ==
 
 = Can I use this also in Divi, Elementor, other PageBuilder or the Classic Editor? =
 
-No, the plugin is intended solely for Gutenberg and always will be.
+No, the plugin is intended solely for Block Editor aka Gutenberg and always will be.
 
 = Can I use other blocks between the list items, e.g. for a description text? =
 
@@ -38,7 +38,7 @@ Yes, as follows: enter the desired content between the individual list blocks. T
 
 = Can I use different list-styles in one list? =
 
-No, not yet. As soon as it is possible in Gutenberg, this will be added.
+No, not yet. As soon as it is possible in Block Editor, this will be added.
 
 == Changelog ==
 
