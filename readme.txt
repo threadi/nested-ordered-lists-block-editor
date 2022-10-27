@@ -15,9 +15,12 @@ The creation of numbered ordered lists such as 1.1, 1.2, 1.3, 2.1 etc. in Block 
 == Usage ==
 
 1. Open a page where you want to use nested ordered lists.
-2. Add a normal list-block.
-3. Choose ordered list to be able to use its list-style.
-4. Check "Use nested ordered lists" on the right to enable them.
+2. Edit this page with block editor.
+3. Add a normal list-block.
+4. Choose ordered list to be able to use its list-style.
+5. Check "Use nested ordered lists" on the right to enable them.
+
+The development repository is on [GitHub](https://github.com/threadi/nested-ordered-lists-block-editor).
 
 == Screenshots ==
 
