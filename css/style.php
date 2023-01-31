@@ -12,21 +12,36 @@ header("Content-type: text/css");
 body ol[type=a1], body ol[type=a1] ol {
     list-style-type: lower-alpha;
 }
+body ol[type=a1] > li {
+    list-style-type: lower-alpha !important;
+}
 
 body ol[type=a2], body ol[type=a2] ol {
     list-style-type: upper-alpha;
+}
+body ol[type=a2] > li {
+    list-style-type: upper-alpha !important;
 }
 
 body ol[type=i1], body ol[type=i1] ol {
     list-style-type: lower-roman;
 }
+body ol[type=i1] > li {
+    list-style-type: lower-roman !important;
+}
 
 body ol[type=i2], body ol[type=i2] ol {
     list-style-type: upper-roman;
 }
+body ol[type=i2] > li {
+    list-style-type: upper-roman !important;
+}
 
 body ol.nolg-list, body ol.nolg-list ol {
-	list-style: none;
+    list-style: none;
+}
+body ol.nolg-list > li {
+    list-style: none !important;
 }
 
 body ol.nolg-list, body ol.nolg-list ol {
