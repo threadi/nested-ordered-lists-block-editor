@@ -46,5 +46,7 @@ No, not yet. As soon as it is possible in Block Editor, this will be added.
 * Initial release
 
 = 1.0.1 =
+* Added italian as language
 * Compatibility set for WordPress 6.2
 * Updated dependencies
+* Fix for: Nested list style should override parent's (thanks @vHeemstra)
