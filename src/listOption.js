@@ -109,7 +109,13 @@ function createElements(n, object){
         // add checkbox to enable this level
         elements.push(
             <CheckboxControl key={[i] + 'checkbox'}
-                             label={sprintf(__('Use start level %s', 'nested-ordered-lists-block-editor'), i)}
+                             label={
+                                sprintf(
+                                    // translators: %d: number for level
+                                    __('Use start level %d', 'nested-ordered-lists-block-editor'),
+                                    i
+                                )
+                            }
                              checked={object.attributes.startlevel[i].active}
                              onChange={value => onChangeLevelAttributeActive( object, i, value )}
                              disabled={!object.attributes.start}
@@ -120,7 +126,13 @@ function createElements(n, object){
         // add input-field for start-number
         elements.push(
             <NumberControl key={[i] + 'number'}
-                           label={sprintf(__('start value for level %s', 'nested-ordered-lists-block-editor'), i)}
+                           label={
+                                sprintf(
+                                    // translators: %d: number for level
+                                    __('start value for level %d', 'nested-ordered-lists-block-editor'),
+                                    i
+                                )
+                            }
                            labelPosition='top'
                            isShiftStepEnabled={true}
                            value={object.attributes.startlevel[i].value}

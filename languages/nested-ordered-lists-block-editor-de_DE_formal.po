@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: Nested Ordered Lists for Gutenberg @@VersionNumber@@\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/nested-ordered-"
 "lists-block-editor\n"
-"POT-Creation-Date: 2022-10-23T13:11:25+02:00\n"
-"PO-Revision-Date: 2022-10-23 13:12+0200\n"
+"POT-Creation-Date: 2023-03-19T09:42:57-05:00\n"
+"PO-Revision-Date: 2023-03-19 15:43+0100\n"
 "Last-Translator: Thomas Zwirner <info@thomaszwirner.de>\n"
 "Language-Team: \n"
 "Language: de\n"
@@ -24,8 +24,7 @@ msgstr "Verschachtelte nummerierte Listen für den Block Editor"
 #. Description of the plugin
 msgid "Adds support for nested ordered lists in List Block."
 msgstr ""
-"Fügt Unterstützung für verschachtelte nummerierte Listen im List Block "
-"hinzu."
+"Fügt Unterstützung für verschachtelte nummerierte Listen im List Block hinzu."
 
 #. Author of the plugin
 msgid "Thomas Zwirner"
@@ -67,12 +66,14 @@ msgstr "mit Einrückung"
 msgid "Set start level above first"
 msgstr "Anfangswert oberhalb setzen"
 
-#: attributes/index.js:1
-msgid "Use start level %s"
+#. translators: %d: number for level
+#: attributes/index.js:3
+msgid "Use start level %d"
 msgstr "Verwende Start-Level %s"
 
-#: attributes/index.js:1
-msgid "start value for level %s"
+#. translators: %d: number for level
+#: attributes/index.js:5
+msgid "start value for level %d"
 msgstr "Wert für Start-Level %s"
 
 #, fuzzy
