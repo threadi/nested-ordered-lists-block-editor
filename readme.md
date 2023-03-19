@@ -9,7 +9,8 @@ After checkout go through the following steps:
 1. copy _build/build.properties.dist_ to _build/build.properties_.
 2. modify the build/build.properties file - note the comments in the file.
 3. execute the command in _build/_: `ant init`
-4. after that the plugin can be activated in WordPress
+4. execute the command in the plugin-directory `npm start` 
+5. after that the plugin can be activated in WordPress
 
 ## Release
 
@@ -25,7 +26,7 @@ I recommend to use [PoEdit](https://poedit.net/) to translate texts for this plu
 
 Run in main directory:
 
-`wp i18n make-pot . languages/nested-ordered-lists-block-editor.pot --exclude=src`
+`wp i18n make-pot . languages/nested-ordered-lists-block-editor.pot --exclude=src,svn`
 
 ### update translation-file
 
