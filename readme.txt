@@ -2,11 +2,11 @@
 Contributors: threadi
 Tags: list, ordered list, numbered list
 Requires at least: 6.0
-Tested up to: 6.1
+Tested up to: 6.2
 Requires PHP: 7.4
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 
 == Description ==
 
@@ -44,3 +44,7 @@ No, not yet. As soon as it is possible in Block Editor, this will be added.
 
 = 1.0.0 =
 * Initial release
+
+= 1.0.1 =
+* Compatibility set for WordPress 6.2
+* Updated dependencies
