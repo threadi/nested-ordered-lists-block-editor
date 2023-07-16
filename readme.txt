@@ -6,7 +6,7 @@ Tested up to: 6.2
 Requires PHP: 7.4
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 
 == Description ==
 
@@ -50,3 +50,7 @@ No, not yet. As soon as it is possible in Block Editor, this will be added.
 * Compatibility set for WordPress 6.2
 * Updated dependencies
 * Fix for: Nested list style should override parent's (thanks @vHeemstra)
+
+= 1.0.2 =
+* Compatibility set for WordPress 6.3
+* Fixed loading of scripts in Block Editor
