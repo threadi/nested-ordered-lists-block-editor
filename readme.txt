@@ -52,6 +52,7 @@ No, not yet. As soon as it is possible in Block Editor, this will be added.
 * Fix for: Nested list style should override parent's (thanks @vHeemstra)
 
 = 1.0.2 =
+* Optimized handling to enable the ordered styles
 * Compatibility set for WordPress 6.3
 * Compatible with WordPress Coding Standards
 * Updated dependencies
