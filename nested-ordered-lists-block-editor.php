@@ -69,4 +69,4 @@ function nolg_assets() {
 		);
 	}
 }
-add_action( 'admin_enqueue_scripts', 'nolg_assets' );
+add_action( 'enqueue_block_assets', 'nolg_assets' );
