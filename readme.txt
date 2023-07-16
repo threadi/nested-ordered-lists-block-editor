@@ -2,7 +2,7 @@
 Contributors: threadi
 Tags: list, ordered list, numbered list
 Requires at least: 6.0
-Tested up to: 6.2
+Tested up to: 6.3
 Requires PHP: 7.4
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -52,6 +52,7 @@ No, not yet. As soon as it is possible in Block Editor, this will be added.
 * Fix for: Nested list style should override parent's (thanks @vHeemstra)
 
 = 1.0.2 =
+* Optimized handling to enable the ordered styles
 * Compatibility set for WordPress 6.3
 * Compatible with WordPress Coding Standards
 * Updated dependencies

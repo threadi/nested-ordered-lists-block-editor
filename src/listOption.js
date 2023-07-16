@@ -259,13 +259,6 @@ const setAttributesInEditor = createHigherOrderComponent( ( BlockListBlock ) => 
             );
         }
 
-        // If block is not set to ordered
-        if( !props.attributes.ordered ) {
-            return (
-                <BlockListBlock { ...props } />
-            );
-        }
-
         /**
          * Get attributes
          */
@@ -330,7 +323,8 @@ const addOptionInSidebar = createHigherOrderComponent( ( BlockEdit ) => {
             {
                 {
                     attributes.type !== value && setAttributes({
-                        type: value
+                        type: value,
+                        ordered: true
                     });
                 }
                 {
@@ -345,7 +339,7 @@ const addOptionInSidebar = createHigherOrderComponent( ( BlockEdit ) => {
         return (
             <Fragment>
                 <BlockEdit { ...props } />
-                {attributes.ordered && <BlockControls group="block">
+                <BlockControls group="block">
                     <ToolbarGroup>
                         <ToolbarButton
                             icon={ icons.lowerAlpha }
@@ -372,7 +366,7 @@ const addOptionInSidebar = createHigherOrderComponent( ( BlockEdit ) => {
                             onClick={ value => onClickAttributeType('i2') }
                         />
                     </ToolbarGroup>
-                </BlockControls>}
+                </BlockControls>
                 {attributes.ordered && <InspectorControls>
                     <PanelBody
                         title={ __( 'Advanced List Controls', 'nested-ordered-lists-block-editor' ) }
