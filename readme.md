@@ -71,3 +71,17 @@ Run `ant generate-css` in _build/_.
 ## Known bugs
 
 * reversed orders numbered list with start numbers > 0 on level 2 will not work in frontend.
+
+## Check for WordPress Coding Standards
+
+### Initialize
+
+`composer install`
+
+### Run
+
+`vendor/bin/phpcs --standard=WordPress file`
+
+### Repair
+
+`vendor/bin/phpcbf --standard=WordPress file`

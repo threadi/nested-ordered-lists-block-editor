@@ -53,4 +53,6 @@ No, not yet. As soon as it is possible in Block Editor, this will be added.
 
 = 1.0.2 =
 * Compatibility set for WordPress 6.3
+* Compatible with WordPress Coding Standards
+* Updated dependencies
 * Fixed loading of scripts in Block Editor
