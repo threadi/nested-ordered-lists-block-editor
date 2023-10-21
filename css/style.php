@@ -117,7 +117,7 @@ $types = array(
 );
 
 // loop through max level from settings.
-for ( $m2 = 2;$m2 < $max_level;$m++ ) {
+for ( $m2 = 2;$m2 < $max_level;$m2++ ) {
 
 	$css_level_selector .= '[data-startl' . $m2 . ']';
 

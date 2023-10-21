@@ -2,7 +2,7 @@
 Contributors: threadi
 Tags: list, ordered list, numbered list
 Requires at least: 6.0
-Tested up to: 6.3.1
+Tested up to: 6.4
 Requires PHP: 7.4
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -59,5 +59,5 @@ No, not yet. As soon as it is possible in Block Editor, this will be added.
 * Fixed loading of scripts in Block Editor
 
 = 1.0.3 =
-* Compatibility set for WordPress 6.3.1
+* Compatibility set for WordPress 6.4
 * Compatibility with WordPress Coding Standards 3.0
