@@ -55,5 +55,13 @@ function nolg_assets(): void {
 
 	// add frontend-css.
 	nolg_frontend_style();
+
+	// add translations for the backend-script.
+	if (function_exists('wp_set_script_translations')) {
+		wp_set_script_translations(
+			'nolg-backend',
+			'nested-ordered-lists-for-block-editor'
+		);
+	}
 }
 add_action( 'enqueue_block_assets', 'nolg_assets' );

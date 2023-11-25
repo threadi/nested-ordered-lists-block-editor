@@ -6,7 +6,7 @@ Tested up to: 6.4.1
 Requires PHP: 7.4
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 
 == Description ==
 
@@ -70,3 +70,6 @@ Yes, since WordPress 6.3 you could create list where this plugin supports to set
 * Changed text-domain to match WordPress repository requirements
 * Remove language files from package, translations are completely run via WordPress translations
 * Updated dependencies
+
+= 1.1.1 =
+* Fixed loading of JSON translations for block editor
