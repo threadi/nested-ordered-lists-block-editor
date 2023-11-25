@@ -2,20 +2,20 @@
 Contributors: threadi
 Tags: list, ordered list, numbered list
 Requires at least: 6.0
-Tested up to: 6.4
+Tested up to: 6.4.1
 Requires PHP: 7.4
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
-Stable tag: 1.0.3
+Stable tag: 1.1.0
 
 == Description ==
 
-The creation of numbered ordered lists such as 1.1, 1.2, 1.3, 2.1 etc. in Block Editor is now possible! This plugin adds this missing function at the list block. Use individual numbers up to the 4th level. Also reversed lists (2.2, 2.1, 1.3, 1.2, 1.1 etc.) and additional list-styles (like upper- and lowercase roman and alphabet) are supported.
+Extends the list block in Block Editor with options for numbered ordered lists such as 1.1, 1.2, 1.3, 2.1 etc.! Use individual numbers up to the 4th level. Also reversed lists (2.2, 2.1, 1.3, 1.2, 1.1 etc.) and additional list-styles (like upper- and lowercase roman and alphabet) are supported.
 
 == Usage ==
 
 1. Open a page where you want to use nested ordered lists.
-2. Add a normal list-block.
+2. Add a normal list block.
 3. Choose ordered list to be able to use its list-style.
 4. Check "Use nested ordered lists" on the right to enable them.
 
@@ -25,6 +25,7 @@ The creation of numbered ordered lists such as 1.1, 1.2, 1.3, 2.1 etc. in Block 
 
 1. Upload "nested-ordered-lists-block-editor" to the "/wp-content/plugins/" directory.
 2. Activate the plugin through the "Plugins" menu in WordPress.
+3. No configuration required. Use it straight away.
 
 == Frequently Asked Questions ==
 
@@ -38,7 +39,7 @@ Yes, as follows: enter the desired content between the individual list blocks. T
 
 = Can I use different list-styles in one list? =
 
-No, not yet. As soon as it is possible in Block Editor, this will be added.
+Yes, since WordPress 6.3 you could create list where this plugin supports to set different list-styles for each list.
 
 == Changelog ==
 
@@ -61,3 +62,8 @@ No, not yet. As soon as it is possible in Block Editor, this will be added.
 = 1.0.3 =
 * Compatibility set for WordPress 6.4
 * Compatibility with WordPress Coding Standards 3.0
+
+= 1.1.0 =
+* Added option to inherit settings to sublists (default enabled)
+* Optimized handling for sublists since WordPress 6.3
+* Updated dependencies

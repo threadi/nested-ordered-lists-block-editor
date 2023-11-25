@@ -50,9 +50,9 @@ function nolg_assets(): void {
 	// add backend-js.
 	wp_enqueue_script(
 		'nolg-backend',
-		plugins_url( 'attributes/index.js', __FILE__ ),
+		plugins_url( 'attributes/listOption.js', __FILE__ ),
 		array( 'wp-blocks', 'wp-element', 'wp-components', 'wp-i18n', 'wp-block-editor' ),
-		filemtime( plugin_dir_path( __FILE__ ) . 'attributes/index.js' ),
+		filemtime( plugin_dir_path( __FILE__ ) . 'attributes/listOption.js' ),
 		true
 	);
 
