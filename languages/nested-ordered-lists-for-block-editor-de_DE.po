@@ -15,7 +15,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.0.1\n"
-"X-Domain: nested-ordered-lists-gb\n"
+"X-Domain: nested-ordered-lists-for-block-editor\n"
 
 #. Plugin Name of the plugin
 msgid "Nested Ordered Lists for Block Editor"
