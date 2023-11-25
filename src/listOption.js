@@ -297,7 +297,8 @@ const addOptionInSidebar = createHigherOrderComponent( ( BlockEdit ) => {
                 {
                     attributes.type !== value && setAttributes({
                         type: value,
-                        ordered: true
+                        ordered: true,
+						nestedList: true
                     });
                 }
                 {
@@ -362,6 +363,7 @@ const addOptionInSidebar = createHigherOrderComponent( ( BlockEdit ) => {
                                     inheritSettings: value,
                                 } );
                             } }
+							disabled={!nestedList}
                         />
                         {nestedList &&
                             <CheckboxControl
