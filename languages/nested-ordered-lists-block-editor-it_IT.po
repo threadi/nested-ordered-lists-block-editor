@@ -6,8 +6,8 @@ msgstr ""
 "@@VersionNumber@@\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/nested-ordered-"
 "lists-block-editor\n"
-"POT-Creation-Date: 2023-03-19T09:42:57-05:00\n"
-"PO-Revision-Date: 2023-03-19 15:46+0100\n"
+"POT-Creation-Date: 2023-11-25T11:37:45+01:00\n"
+"PO-Revision-Date: 2023-11-25 11:39+0100\n"
 "Last-Translator: Thomas Zwirner <info@thomaszwirner.de>\n"
 "Language-Team: \n"
 "Language: it\n"
@@ -35,44 +35,53 @@ msgstr "Thomas Zwirner"
 msgid "https://www.thomaszwirner.de"
 msgstr "https://www.thomaszwirner.de"
 
-#: attributes/index.js:1
-msgid "lowercase letters style"
-msgstr "stile lettere minuscole"
-
-#: attributes/index.js:1
-msgid "uppercase letters style"
-msgstr "stile lettere maiuscole"
-
-#: attributes/index.js:1
-msgid "lowercase roman style"
-msgstr "stile lettere minuscole"
-
-#: attributes/index.js:1
-msgid "uppercase roman style"
-msgstr "stile lettere maiuscole"
-
-#: attributes/index.js:1
-msgid "Advanced List Controls"
-msgstr "Controlli audio avanzati"
-
-#: attributes/index.js:1
-msgid "Use nested ordered lists"
-msgstr "Elenchi ordinati annidati per l'editor a blocchi"
-
-#: attributes/index.js:1
-msgid "with indentation"
-msgstr "con rientri"
-
-#: attributes/index.js:1
+#: attributes/listOption.js:411 attributes/listOption.js:232
 msgid "Set start level above first"
 msgstr "Impostare il livello di partenza sopra il primo"
 
 #. translators: %d: number for level
-#: attributes/index.js:3
+#: attributes/listOption.js:419 attributes/listOption.js:241
 msgid "Use start level %d"
 msgstr "Utilizzare il livello iniziale %d"
 
 #. translators: %d: number for level
-#: attributes/index.js:5
+#: attributes/listOption.js:431 attributes/listOption.js:258
 msgid "start value for level %d"
 msgstr "valore iniziale per il livello %d"
+
+#: attributes/listOption.js:641 attributes/listOption.js:446
+msgid "lowercase letters style"
+msgstr "stile lettere minuscole"
+
+#: attributes/listOption.js:646 attributes/listOption.js:452
+msgid "uppercase letters style"
+msgstr "stile lettere maiuscole"
+
+#: attributes/listOption.js:651 attributes/listOption.js:458
+msgid "lowercase roman style"
+msgstr "stile lettere minuscole"
+
+#: attributes/listOption.js:656 attributes/listOption.js:464
+msgid "uppercase roman style"
+msgstr "stile lettere maiuscole"
+
+#: attributes/listOption.js:660 attributes/listOption.js:686
+#: attributes/listOption.js:473 attributes/listOption.js:509
+msgid "Advanced List Controls"
+msgstr "Controlli audio avanzati"
+
+#: attributes/listOption.js:662 attributes/listOption.js:476
+msgid "Use nested ordered lists"
+msgstr "Elenchi ordinati annidati per l'editor a blocchi"
+
+#: attributes/listOption.js:670 attributes/listOption.js:485
+msgid "Inherit settings"
+msgstr "Ereditare le impostazioni"
+
+#: attributes/listOption.js:678 attributes/listOption.js:495
+msgid "with indentation"
+msgstr "con rientri"
+
+#: attributes/listOption.js:687 attributes/listOption.js:511
+msgid "Settings inherited from parent list."
+msgstr "Impostazioni ereditate dall'elenco dei genitori."

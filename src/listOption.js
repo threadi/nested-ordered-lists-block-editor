@@ -83,8 +83,7 @@ function generateAttributeLevelArray(n) {
         Object.assign(attributes, {
             [i]: {
                 'value': 0,
-                'active': false,
-                // TODO 'type': 'number'
+                'active': false
             }
         });
     }
@@ -142,24 +141,6 @@ function createElements(n, object){
                            onChange={value => onChangeLevelAttributeValue( object, i, value )}
             />
         )
-
-        // TODO add select-field to choose the type for this level
-        /*elements.push(
-            <SelectControl key={[i] + 'type'}
-                           label={sprintf(__('type for level %s', 'nested-ordered-lists-block-editor'), i)}
-                           value={object.attributes.startlevel[i].type}
-                           min={0}
-                           disabled={!object.attributes.start}
-                           title={title}
-                           onChange={value => onChangeLevelAttributeType( object, i, value )}
-                           options={ [
-                               { label: __('lowercase letters style', 'nested-ordered-lists-block-editor'), value: 'a1' },
-                               { label: __('uppercase letters style', 'nested-ordered-lists-block-editor'), value: 'a2' },
-                               { label: __('lowercase roman numbers style', 'nested-ordered-lists-block-editor'), value: 'i1' },
-                               { label: __('uppercase roman numbers style', 'nested-ordered-lists-block-editor'), value: 'i2' },
-                           ] }
-            />
-        )*/
     });
     return elements;
 }
@@ -203,26 +184,6 @@ export const onChangeLevelAttributeValue = ( props, c, newValue ) => {
 }
 
 /**
- * Update type of given supported level.
- *
- * @param props
- * @param c
- * @param newValue
- */
-/** TODO
-export const onChangeLevelAttributeType = ( props, c, newValue ) => {
-    let newArray = {
-        ...props.attributes.startlevel
-    }
-    Object.keys(newArray).forEach(function(i) {
-        if( i === c ) {
-            newArray[i].type = newValue
-        }
-    });
-    props.setAttributes( { startlevel: newArray } );
-}*/
-
-/**
  * Add our custom list-attributes to the list of allowed attributes for this block.
  */
 const addListAttributes = ( settings, name ) => {
@@ -234,6 +195,7 @@ const addListAttributes = ( settings, name ) => {
     settings.attributes = Object.assign(settings.attributes, {
         nestedList: { type: 'boolean', default: false },
         listIntent: { type: 'boolean', default: false },
+        inheritSettings: { type: 'boolean', default: true },
         type: { type: 'string', default: undefined },
         startlevel: { type: 'object', default: generateAttributeLevelArray(list_max_level) }
     });
@@ -312,7 +274,18 @@ const addOptionInSidebar = createHigherOrderComponent( ( BlockEdit ) => {
 
         // get attributes
         const { attributes, setAttributes } = props;
-        const { nestedList, listIntent } = attributes;
+        let { nestedList, listIntent, inheritSettings } = attributes;
+
+        // get parent settings for nested list, if available and enabled on parent
+        const parentBlocks = wp.data.select( 'core/block-editor' ).getBlockParentsByBlockName(props.clientId, ['core/list']);
+        const parentAttributes = wp.data.select('core/block-editor').getBlocksByClientId(parentBlocks);
+        let inheritedSettings = false;
+        if( parentAttributes[0] && parentAttributes[0].attributes.nestedList && parentAttributes[0].attributes.inheritSettings ) {
+            inheritedSettings = true;
+            attributes.ordered = parentAttributes[0].attributes.ordered;
+            attributes.type = parentAttributes[0].type;
+            nestedList = true;
+        }
 
         /**
          * Update type of initial list.
@@ -339,35 +312,36 @@ const addOptionInSidebar = createHigherOrderComponent( ( BlockEdit ) => {
         return (
             <Fragment>
                 <BlockEdit { ...props } />
-                <BlockControls group="block">
-                    <ToolbarGroup>
-                        <ToolbarButton
-                            icon={ icons.lowerAlpha }
-                            label={ __( 'lowercase letters style', 'nested-ordered-lists-block-editor' ) }
-                            isActive={attributes.type === 'a1'}
-                            onClick={ value => onClickAttributeType('a1') }
-                        />
-                        <ToolbarButton
-                            icon= { icons.upperAlpha }
-                            label={ __( 'uppercase letters style', 'nested-ordered-lists-block-editor' ) }
-                            isActive={attributes.type === 'a2'}
-                            onClick={ value => onClickAttributeType('a2') }
-                        />
-                        <ToolbarButton
-                            icon={ icons.lowerRoman }
-                            label={ __( 'lowercase roman style', 'nested-ordered-lists-block-editor' ) }
-                            isActive={attributes.type === 'i1'}
-                            onClick={ value => onClickAttributeType('i1') }
-                        />
-                        <ToolbarButton
-                            icon={ icons.upperRoman }
-                            label={ __( 'uppercase roman style', 'nested-ordered-lists-block-editor' ) }
-                            isActive={attributes.type === 'i2'}
-                            onClick={ value => onClickAttributeType('i2') }
-                        />
-                    </ToolbarGroup>
-                </BlockControls>
-                {attributes.ordered && <InspectorControls>
+                {!inheritedSettings && <BlockControls group="block">
+                        <ToolbarGroup>
+                            <ToolbarButton
+                                icon={ icons.lowerAlpha }
+                                label={ __( 'lowercase letters style', 'nested-ordered-lists-block-editor' ) }
+                                isActive={attributes.type === 'a1'}
+                                onClick={ value => onClickAttributeType('a1') }
+                            />
+                            <ToolbarButton
+                                icon= { icons.upperAlpha }
+                                label={ __( 'uppercase letters style', 'nested-ordered-lists-block-editor' ) }
+                                isActive={attributes.type === 'a2'}
+                                onClick={ value => onClickAttributeType('a2') }
+                            />
+                            <ToolbarButton
+                                icon={ icons.lowerRoman }
+                                label={ __( 'lowercase roman style', 'nested-ordered-lists-block-editor' ) }
+                                isActive={attributes.type === 'i1'}
+                                onClick={ value => onClickAttributeType('i1') }
+                            />
+                            <ToolbarButton
+                                icon={ icons.upperRoman }
+                                label={ __( 'uppercase roman style', 'nested-ordered-lists-block-editor' ) }
+                                isActive={attributes.type === 'i2'}
+                                onClick={ value => onClickAttributeType('i2') }
+                            />
+                        </ToolbarGroup>
+                    </BlockControls>
+                }
+                {attributes.ordered && !inheritedSettings && <InspectorControls>
                     <PanelBody
                         title={ __( 'Advanced List Controls', 'nested-ordered-lists-block-editor' ) }
                     >
@@ -377,6 +351,15 @@ const addOptionInSidebar = createHigherOrderComponent( ( BlockEdit ) => {
                             onChange={ ( value ) => {
                                 setAttributes( {
                                     nestedList: value,
+                                } );
+                            } }
+                        />
+                        <CheckboxControl
+                            label={__('Inherit settings', 'nested-ordered-lists-block-editor')}
+                            checked={ inheritSettings }
+                            onChange={ ( value ) => {
+                                setAttributes( {
+                                    inheritSettings: value,
                                 } );
                             } }
                         />
@@ -392,6 +375,13 @@ const addOptionInSidebar = createHigherOrderComponent( ( BlockEdit ) => {
                             />
                         }
                         {nestedList && createElements(list_max_level, props)}
+                    </PanelBody>
+                </InspectorControls>}
+                {attributes.ordered && inheritedSettings && <InspectorControls>
+                    <PanelBody
+                        title={ __( 'Advanced List Controls', 'nested-ordered-lists-block-editor' ) }
+                    >
+                        <p>{ __( 'Settings inherited from parent list.', 'nested-ordered-lists-block-editor' ) }</p>
                     </PanelBody>
                 </InspectorControls>}
             </Fragment>
