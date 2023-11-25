@@ -15,17 +15,6 @@
  */
 
 /**
- * Initialize the plugin.
- *
- * @return void
- * @noinspection PhpUnused
- */
-function nolg_init(): void {
-	load_plugin_textdomain( 'nested-ordered-lists-block-editor', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
-}
-add_action( 'init', 'nolg_init' );
-
-/**
  * Enqueue frontend style.
  *
  * @return void
@@ -66,14 +55,5 @@ function nolg_assets(): void {
 
 	// add frontend-css.
 	nolg_frontend_style();
-
-	// add translations for the backend-script.
-	if ( function_exists( 'wp_set_script_translations' ) ) {
-		wp_set_script_translations(
-			'nolg-backend',
-			'nested-ordered-lists-block-editor',
-			plugin_dir_path( __FILE__ ) . '/languages/'
-		);
-	}
 }
 add_action( 'enqueue_block_assets', 'nolg_assets' );
