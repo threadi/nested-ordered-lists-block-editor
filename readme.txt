@@ -66,6 +66,7 @@ Yes, since WordPress 6.3 you could create list where this plugin supports to set
 = 1.1.0 =
 * Added option to inherit settings to sublists (default enabled)
 * Optimized handling for sublists since WordPress 6.3
+* Enabling a custom list style enabled the nested lists now automatically
 * Changed text-domain to match WordPress repository requirements
 * Remove language files from package, translations are completely run via WordPress translations
 * Updated dependencies
