@@ -9,9 +9,9 @@
  * Author URI:        https://www.thomaszwirner.de
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       nested-ordered-lists-block-editor
+ * Text Domain:       nested-ordered-lists-for-block-editor
  *
- * @package nested-ordered-lists-block-editor
+ * @package nested-ordered-lists-for-block-editor
  */
 
 /**

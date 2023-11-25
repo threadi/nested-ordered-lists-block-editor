@@ -102,7 +102,7 @@ function createElements(n, object){
     Object.keys(object.attributes.startlevel).forEach(function(i) {
         let title = '';
         if( !object.attributes.start ) {
-            title = __('Set start level above first', 'nested-ordered-lists-block-editor');
+            title = __('Set start level above first', 'nested-ordered-lists-for-block-editor');
         }
 
         // add checkbox to enable this level
@@ -111,7 +111,7 @@ function createElements(n, object){
                              label={
                                 sprintf(
                                     // translators: %d: number for level
-                                    __('Use start level %d', 'nested-ordered-lists-block-editor'),
+                                    __('Use start level %d', 'nested-ordered-lists-for-block-editor'),
                                     i
                                 )
                             }
@@ -128,7 +128,7 @@ function createElements(n, object){
                            label={
                                 sprintf(
                                     // translators: %d: number for level
-                                    __('start value for level %d', 'nested-ordered-lists-block-editor'),
+                                    __('start value for level %d', 'nested-ordered-lists-for-block-editor'),
                                     i
                                 )
                             }
@@ -316,25 +316,25 @@ const addOptionInSidebar = createHigherOrderComponent( ( BlockEdit ) => {
                         <ToolbarGroup>
                             <ToolbarButton
                                 icon={ icons.lowerAlpha }
-                                label={ __( 'lowercase letters style', 'nested-ordered-lists-block-editor' ) }
+                                label={ __( 'lowercase letters style', 'nested-ordered-lists-for-block-editor' ) }
                                 isActive={attributes.type === 'a1'}
                                 onClick={ value => onClickAttributeType('a1') }
                             />
                             <ToolbarButton
                                 icon= { icons.upperAlpha }
-                                label={ __( 'uppercase letters style', 'nested-ordered-lists-block-editor' ) }
+                                label={ __( 'uppercase letters style', 'nested-ordered-lists-for-block-editor' ) }
                                 isActive={attributes.type === 'a2'}
                                 onClick={ value => onClickAttributeType('a2') }
                             />
                             <ToolbarButton
                                 icon={ icons.lowerRoman }
-                                label={ __( 'lowercase roman style', 'nested-ordered-lists-block-editor' ) }
+                                label={ __( 'lowercase roman style', 'nested-ordered-lists-for-block-editor' ) }
                                 isActive={attributes.type === 'i1'}
                                 onClick={ value => onClickAttributeType('i1') }
                             />
                             <ToolbarButton
                                 icon={ icons.upperRoman }
-                                label={ __( 'uppercase roman style', 'nested-ordered-lists-block-editor' ) }
+                                label={ __( 'uppercase roman style', 'nested-ordered-lists-for-block-editor' ) }
                                 isActive={attributes.type === 'i2'}
                                 onClick={ value => onClickAttributeType('i2') }
                             />
@@ -343,10 +343,10 @@ const addOptionInSidebar = createHigherOrderComponent( ( BlockEdit ) => {
                 }
                 {attributes.ordered && !inheritedSettings && <InspectorControls>
                     <PanelBody
-                        title={ __( 'Advanced List Controls', 'nested-ordered-lists-block-editor' ) }
+                        title={ __( 'Advanced List Controls', 'nested-ordered-lists-for-block-editor' ) }
                     >
                         <CheckboxControl
-                            label={__('Use nested ordered lists', 'nested-ordered-lists-block-editor')}
+                            label={__('Use nested ordered lists', 'nested-ordered-lists-for-block-editor')}
                             checked={ nestedList }
                             onChange={ ( value ) => {
                                 setAttributes( {
@@ -355,7 +355,7 @@ const addOptionInSidebar = createHigherOrderComponent( ( BlockEdit ) => {
                             } }
                         />
                         <CheckboxControl
-                            label={__('Inherit settings', 'nested-ordered-lists-block-editor')}
+                            label={__('Inherit settings', 'nested-ordered-lists-for-block-editor')}
                             checked={ inheritSettings }
                             onChange={ ( value ) => {
                                 setAttributes( {
@@ -365,7 +365,7 @@ const addOptionInSidebar = createHigherOrderComponent( ( BlockEdit ) => {
                         />
                         {nestedList &&
                             <CheckboxControl
-                                label={__('with indentation', 'nested-ordered-lists-block-editor')}
+                                label={__('with indentation', 'nested-ordered-lists-for-block-editor')}
                                 checked={listIntent}
                                 onChange={(value) => {
                                     setAttributes({
@@ -379,9 +379,9 @@ const addOptionInSidebar = createHigherOrderComponent( ( BlockEdit ) => {
                 </InspectorControls>}
                 {attributes.ordered && inheritedSettings && <InspectorControls>
                     <PanelBody
-                        title={ __( 'Advanced List Controls', 'nested-ordered-lists-block-editor' ) }
+                        title={ __( 'Advanced List Controls', 'nested-ordered-lists-for-block-editor' ) }
                     >
-                        <p>{ __( 'Settings inherited from parent list.', 'nested-ordered-lists-block-editor' ) }</p>
+                        <p>{ __( 'Settings inherited from parent list.', 'nested-ordered-lists-for-block-editor' ) }</p>
                     </PanelBody>
                 </InspectorControls>}
             </Fragment>

@@ -4,7 +4,7 @@
  * or during development via ant.
  *
  * @see readme.md
- * @package nested-ordered-lists-block-editor
+ * @package nested-ordered-lists-for-block-editor
  */
 
 // Set header to text/css.

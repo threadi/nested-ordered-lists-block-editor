@@ -2,7 +2,7 @@
 /**
  * Tasks to run during uninstallation of this plugin.
  *
- * @package nested-ordered-lists-block-editor
+ * @package nested-ordered-lists-for-block-editor
  */
 
 // Exit if accessed directly.

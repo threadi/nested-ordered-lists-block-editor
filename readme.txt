@@ -23,7 +23,7 @@ Extends the list block in Block Editor with options for numbered ordered lists s
 
 == Installation ==
 
-1. Upload "nested-ordered-lists-block-editor" to the "/wp-content/plugins/" directory.
+1. Upload "nested-ordered-lists-for-block-editor" to the "/wp-content/plugins/" directory.
 2. Activate the plugin through the "Plugins" menu in WordPress.
 3. No configuration required. Use it straight away.
 
@@ -66,5 +66,6 @@ Yes, since WordPress 6.3 you could create list where this plugin supports to set
 = 1.1.0 =
 * Added option to inherit settings to sublists (default enabled)
 * Optimized handling for sublists since WordPress 6.3
+* Changed text-domain to match WordPress repository requirements
 * Remove language files from package, translations are completely run via WordPress translations
 * Updated dependencies
