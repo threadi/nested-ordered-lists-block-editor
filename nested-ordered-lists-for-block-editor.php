@@ -57,7 +57,7 @@ function nolg_assets(): void {
 	nolg_frontend_style();
 
 	// add translations for the backend-script.
-	if (function_exists('wp_set_script_translations')) {
+	if ( function_exists( 'wp_set_script_translations' ) ) {
 		wp_set_script_translations(
 			'nolg-backend',
 			'nested-ordered-lists-for-block-editor'
