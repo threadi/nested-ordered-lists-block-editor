@@ -80,8 +80,8 @@ Run `ant generate-css` in _build/_.
 
 ### Run
 
-`vendor/bin/phpcs --standard=WordPress file`
+`vendor/bin/phpcs --extensions=php --ignore=*/attributes/*,*/example/*,*/css/*,*/vendor/*,*/node_modules/*,*/svn/* --standard=WordPress .`
 
 ### Repair
 
-`vendor/bin/phpcbf --standard=WordPress file`
+`vendor/bin/phpcbf --extensions=php --ignore=*/attributes/*,*/example/*,*/css/*,*/vendor/*,*/node_modules/*,*/svn/* --standard=WordPress file`
