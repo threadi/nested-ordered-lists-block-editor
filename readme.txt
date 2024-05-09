@@ -77,5 +77,7 @@ Yes, since WordPress 6.3 you could create list where this plugin supports to set
 * Fixed loading of JSON translations for block editor
 
 = 1.1.2 =
+* Added check for WCS on build of each release
 * Compatibility set for WordPress 6.5.3
+* Compatibility with WordPress Coding Standards 3.1
 * Updated dependencies
