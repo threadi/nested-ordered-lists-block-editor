@@ -2,11 +2,11 @@
 Contributors: threadi
 Tags: list, ordered list, numbered list
 Requires at least: 6.0
-Tested up to: 6.5
+Tested up to: 6.5.3
 Requires PHP: 7.4
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 
 == Description ==
 
@@ -75,3 +75,7 @@ Yes, since WordPress 6.3 you could create list where this plugin supports to set
 * Compatibility set for WordPress 6.5
 * Updated dependencies
 * Fixed loading of JSON translations for block editor
+
+= 1.1.2 =
+* Compatibility set for WordPress 6.5.3
+* Updated dependencies
