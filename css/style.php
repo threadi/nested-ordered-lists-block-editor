@@ -59,22 +59,22 @@ body ol.nolg-list > li:before, body ol.nolg-list li > ol > li:before {
 	content: counters(l1, ".") ". ";
 }
 
-body ol.nolg-list[type=a1] > li:before, body ol.nolg-list[type=a1] li > ol > li:before {
+body ol.nolg-list[type=a1] > li:before {
 	counter-increment: l1;
 	content: counters(l1, ".", lower-alpha) " ";
 }
 
-body ol.nolg-list[type=a2] > li:before, body ol.nolg-list[type=a2] li > ol > li:before {
+body ol.nolg-list[type=a2] > li:before {
 	counter-increment: l1;
 	content: counters(l1, ".", upper-alpha) " ";
 }
 
-body ol.nolg-list[type=i1] > li:before, body ol.nolg-list[type=i1] li > ol > li:before {
+body ol.nolg-list[type=i1] > li:before {
 	counter-increment: l1;
 	content: counters(l1, ".", lower-roman) " ";
 }
 
-body ol.nolg-list[type=i2] > li:before, body ol.nolg-list[type=i2] li > ol > li:before {
+body ol.nolg-list[type=i2] > li:before {
 	counter-increment: l1;
 	content: counters(l1, ".", upper-roman) " ";
 }
@@ -157,7 +157,7 @@ for ( $m2 = 2;$m2 < $max_level;$m2++ ) {
                 body ol.nolg-list[start]' . $css_level_selector . $selector[ $l ] . ' {
                     counter-reset:' . $css_counter_reset . ' 0;
                 }
-        
+
                 body ol.nolg-list[start]' . $css_level_selector . '[type="' . $key . '"]' . $selector[ $l ] . ' > li:before {
                     counter-increment: l' . ( $l - 1 ) . ';
                     content: ' . $css_content_use . ';
