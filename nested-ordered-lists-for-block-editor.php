@@ -36,22 +36,22 @@ add_action( 'wp_enqueue_scripts', 'nolg_frontend_style' );
  * @noinspection PhpUnused
  */
 function nolg_assets(): void {
-	if (is_admin() ) {
+	if ( is_admin() ) {
 		// add backend-js.
 		wp_enqueue_script(
 			'nolg-backend',
-			plugins_url('attributes/listOption.js', __FILE__),
-			array('wp-blocks', 'wp-element', 'wp-components', 'wp-i18n', 'wp-block-editor'),
-			filemtime(plugin_dir_path(__FILE__) . 'attributes/listOption.js'),
+			plugins_url( 'attributes/listOption.js', __FILE__ ),
+			array( 'wp-blocks', 'wp-element', 'wp-components', 'wp-i18n', 'wp-block-editor' ),
+			filemtime( plugin_dir_path( __FILE__ ) . 'attributes/listOption.js' ),
 			true
 		);
 
 		// add backend-css.
 		wp_enqueue_style(
 			'nolg-admin',
-			plugins_url('admin/style.css', __FILE__),
+			plugins_url( 'admin/style.css', __FILE__ ),
 			array(),
-			filemtime(plugin_dir_path(__FILE__) . 'admin/style.css')
+			filemtime( plugin_dir_path( __FILE__ ) . 'admin/style.css' )
 		);
 	}
 
