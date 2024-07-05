@@ -2,11 +2,11 @@
 Contributors: threadi
 Tags: list, ordered list, numbered list
 Requires at least: 6.0
-Tested up to: 6.5.3
+Tested up to: 6.6
 Requires PHP: 7.4
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
-Stable tag: 1.1.2
+Stable tag: 1.1.3
 
 Extends the list block in Block Editor with options for numbered ordered lists such as 1.1, 1.2, 1.3, 2.1 etc.!
 
@@ -82,4 +82,9 @@ Yes, since WordPress 6.3 you could create list where this plugin supports to set
 * Added check for WCS on build of each release
 * Compatibility set for WordPress 6.5.3
 * Compatibility with WordPress Coding Standards 3.1
+* Updated dependencies
+
+= 1.1.3 =
+* Do not load admin-only styles and scripts in frontend
+* Compatibility set for WordPress 6.6
 * Updated dependencies
