@@ -88,3 +88,4 @@ Yes, since WordPress 6.3 you could create list where this plugin supports to set
 * Do not load admin-only styles and scripts in frontend
 * Compatibility set for WordPress 6.6
 * Updated dependencies
+* Fixed styling for sub-lists
