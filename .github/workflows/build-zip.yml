@@ -59,8 +59,10 @@ jobs:
           rm readme.md
           rm ruleset.xml
           cd ..
-          zip -r -q ${{ github.event.repository.name }}_${{ github.ref_name }}.zip ${{ github.event.repository.name }}/* -x "*/.git/*" "*/.github/*" "*/blocks/*/src/*" "*/docs/*" "*/phpcs.xml" "*/composer.json" "*/composer.lock" "*/package.json" "*/package-lock.json" "*/ruleset.xml" "*/.gitignore" "*/vendor/*" "*/node_modules/*" "/.editorconfig"
-          cp ${{ github.event.repository.name }}_${{ github.ref_name }}.zip ${{ github.event.repository.name }}/
+          mv ${{ github.event.repository.name }} nested-ordered-lists-for-block-editor
+          zip -r -q nested-ordered-lists-for-block-editor_${{ github.ref_name }}.zip nested-ordered-lists-for-block-editor/* -x "*/.git/*" "*/.github/*" "*/blocks/*/src/*" "*/docs/*" "*/phpcs.xml" "*/composer.json" "*/composer.lock" "*/package.json" "*/package-lock.json" "*/ruleset.xml" "*/.gitignore" "*/vendor/*" "*/node_modules/*" "/.editorconfig"
+          mv nested-ordered-lists-for-block-editor ${{ github.event.repository.name }}
+          cp nested-ordered-lists-for-block-editor_${{ github.ref_name }}.zip ${{ github.event.repository.name }}/
 
       - name: Create Release
         uses: softprops/action-gh-release@v2
@@ -68,4 +70,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          files: ${{ github.event.repository.name }}_${{ github.ref_name }}.zip
+          files: nested-ordered-lists-for-block-editor_${{ github.ref_name }}.zip
