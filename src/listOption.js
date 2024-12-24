@@ -60,13 +60,13 @@ function getCounterReset( props, attributes ) {
         props.style = {'counterReset': styleCounterReset};
     }
 
-    // set list type
+    // set list type.
     props.type = "1";
     if( attributes.type ) {
         props.type = attributes.type;
     }
 
-    // return result
+    // return result.
     return props;
 }
 
@@ -105,7 +105,7 @@ function createElements(n, object){
             title = __('Set start level above first', 'nested-ordered-lists-for-block-editor');
         }
 
-        // add checkbox to enable this level
+        // add checkbox to enable this level.
         elements.push(
             <CheckboxControl key={[i] + 'checkbox'}
                              label={
@@ -122,7 +122,7 @@ function createElements(n, object){
             />
         );
 
-        // add input-field for start-number
+        // add input-field for start-number.
         elements.push(
             <NumberControl key={[i] + 'number'}
                            label={
@@ -197,7 +197,8 @@ const addListAttributes = ( settings, name ) => {
         listIntent: { type: 'boolean', default: false },
         inheritSettings: { type: 'boolean', default: true },
         type: { type: 'string', default: undefined },
-        startlevel: { type: 'object', default: generateAttributeLevelArray(list_max_level) }
+        startlevel: { type: 'object', default: generateAttributeLevelArray(list_max_level) },
+		clientId: { type: 'string', default: false }
     });
 
     return settings;
@@ -214,7 +215,7 @@ wp.hooks.addFilter(
 const setAttributesInEditor = createHigherOrderComponent( ( BlockListBlock ) => {
     return ( props ) => {
 
-        // If current block is not allowed
+        // If current block is not allowed.
         if ( ! enableSidebarSelectOnBlocks.includes( props.name ) ) {
             return (
                 <BlockListBlock { ...props } />
@@ -226,11 +227,11 @@ const setAttributesInEditor = createHigherOrderComponent( ( BlockListBlock ) => 
          */
         const { nestedList, listIntent } = props.attributes;
 
-        // collect classes for list
+        // collect classes for list.
         let nolgClassName = '';
 
         if( props.attributes.type ) {
-            // set class name
+            // set class name.
             nolgClassName = nolgClassName + ' nolg-style';
         }
 
@@ -238,10 +239,18 @@ const setAttributesInEditor = createHigherOrderComponent( ( BlockListBlock ) => 
          * If nested list is activated for this Block add our own classes to it for styling.
          */
         if ( nestedList ) {
-            // set class name
+            // set class name.
             nolgClassName = nolgClassName + ' nolg-list';
 
-            // get counter-reset-styling
+			// get parent settings for nested list, if available and enabled on parent.
+			const parentBlocks = wp.data.select( 'core/block-editor' ).getBlockParentsByBlockName(props.clientId, enableSidebarSelectOnBlocks );
+			const parentAttributes = wp.data.select('core/block-editor').getBlocksByClientId(parentBlocks);
+			if( parentAttributes[0] && parentAttributes[0].attributes.nestedList && parentAttributes[0].attributes.inheritSettings ) {
+				props.attributes.ordered = parentAttributes[0].attributes.ordered;
+				props.attributes.type = parentAttributes[0].attributes.type;
+			}
+
+            // get counter-reset-styling.
             let counterReset = getCounterReset({...props.wrapperProps}, props.attributes)
 
             if( listIntent ) {
@@ -265,19 +274,20 @@ wp.hooks.addFilter(
 const addOptionInSidebar = createHigherOrderComponent( ( BlockEdit ) => {
     return ( props ) => {
 
-        // If current block is not allowed
+        // If current block is not allowed.
         if ( ! enableSidebarSelectOnBlocks.includes( props.name ) ) {
             return (
                 <BlockEdit { ...props } />
             );
         }
 
-        // get attributes
+        // get attributes.
         const { attributes, setAttributes } = props;
         let { nestedList, listIntent, inheritSettings } = attributes;
+		attributes.clientId = props.clientId;
 
-        // get parent settings for nested list, if available and enabled on parent
-        const parentBlocks = wp.data.select( 'core/block-editor' ).getBlockParentsByBlockName(props.clientId, ['core/list']);
+        // get parent settings for nested list, if available and enabled on parent.
+        const parentBlocks = wp.data.select( 'core/block-editor' ).getBlockParentsByBlockName(props.clientId, enableSidebarSelectOnBlocks);
         const parentAttributes = wp.data.select('core/block-editor').getBlocksByClientId(parentBlocks);
         let inheritedSettings = false;
         if( parentAttributes[0] && parentAttributes[0].attributes.nestedList && parentAttributes[0].attributes.inheritSettings ) {
@@ -288,7 +298,7 @@ const addOptionInSidebar = createHigherOrderComponent( ( BlockEdit ) => {
         }
 
         /**
-         * Update type of initial list.
+         * Update type of list.
          *
          * @param value
          */
@@ -405,33 +415,42 @@ const saveAttributesForFrontend = ( extraProps, blockType, attributes ) => {
         return extraProps;
     }
 
-    // Do also nothing if it is not ordered
+    // Do also nothing if it is not ordered.
     if( !attributes.ordered ) {
         return extraProps;
     }
 
-    // get attributes
+    // get attributes.
     const { nestedList, listIntent } = attributes;
 
-    // add class if we use a list-style
+    // add class if we use a list-style.
     if( attributes.type ) {
         extraProps.className = classnames( extraProps.className, 'nolg-style' );
     }
 
-    // change some settings if our nested list is active
-    if( nestedList ) {
-        // add our own class
-        extraProps.className = classnames( extraProps.className, 'nolg-list' );
-        if( listIntent ) {
-            // add additional class if intent should be used
-            extraProps.className = classnames(extraProps.className, 'nolg-list-intent')
-        }
-        // add our level-settings
-        extraProps = getCounterReset(extraProps, attributes);
-    }
+    // change some settings if our nested list is active.
+    if( ! nestedList ) {
+		return extraProps;
+	}
 
-    // return resulting properties
-    return extraProps;
+	// get parent settings for nested list, if available and enabled on parent.
+	const parentBlocks = wp.data.select( 'core/block-editor' ).getBlockParentsByBlockName(attributes.clientId, enableSidebarSelectOnBlocks);
+	const parentAttributes = wp.data.select('core/block-editor').getBlocksByClientId(parentBlocks);
+	if( parentAttributes[0] && parentAttributes[0].attributes.nestedList && parentAttributes[0].attributes.inheritSettings ) {
+		attributes.ordered = parentAttributes[0].attributes.ordered;
+		attributes.type = parentAttributes[0].attributes.type;
+		extraProps.className = classnames( extraProps.className, 'nolg-style' );
+	}
+
+	// add our own class.
+	extraProps.className = classnames( extraProps.className, 'nolg-list' );
+	if( listIntent ) {
+		// add additional class if intent should be used.
+		extraProps.className = classnames(extraProps.className, 'nolg-list-intent')
+	}
+
+	// add our level-settings.
+	return getCounterReset(extraProps, attributes);
 };
 wp.hooks.addFilter(
     'blocks.getSaveContent.extraProps',

@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.1.4] - 22.12.2024
+## [Unreleased]
 
 ### Added
 
@@ -10,6 +10,10 @@
 
 - Moved changelog to GitHub
 - Updated dependencies
+
+## Fixed
+
+- Inherited settings not working
 
 ## [1.1.3] - 05.07.2024
 

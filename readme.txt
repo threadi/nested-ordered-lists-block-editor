@@ -49,5 +49,6 @@ Yes, since WordPress 6.3 you could create list where this plugin supports to set
 * Added GitHub action to build release ZIP
 * Moved changelog to GitHub
 * Updated dependencies
+* Fixed: inherited settings not working
 
 [older changes](https://github.com/threadi/nested-ordered-lists-block-editor/changelog.md)
