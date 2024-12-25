@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Nested Ordered Lists for Block Editor
  * Description:       Adds support for nested ordered lists in List Block.
- * Requires at least: 6.0
+ * Requires at least: 6.6
  * Requires PHP:      7.4
  * Version:           @@VersionNumber@@
  * Author:            Thomas Zwirner

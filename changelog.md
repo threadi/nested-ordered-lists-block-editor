@@ -8,6 +8,7 @@
 
 ### Changed
 
+- New minimum requirement for WordPress 6.6
 - Moved changelog to GitHub
 - Updated dependencies
 

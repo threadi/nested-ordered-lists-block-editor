@@ -1,7 +1,7 @@
 === Nested Ordered Lists for Block Editor ===
 Contributors: threadi
 Tags: list, ordered list, numbered list
-Requires at least: 6.0
+Requires at least: 6.6
 Tested up to: 6.7
 Requires PHP: 7.4
 License: GPL-2.0-or-later
@@ -47,8 +47,9 @@ Yes, since WordPress 6.3 you could create list where this plugin supports to set
 
 == Changelog ==
 
-= 1.1.4 =
+= @@VersionNumber@@ =
 * Added GitHub action to build release ZIP
+* New minimum requirement for WordPress 6.6
 * Moved changelog to GitHub
 * Updated dependencies
 * Fixed: inherited settings not working

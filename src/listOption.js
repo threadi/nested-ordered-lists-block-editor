@@ -212,14 +212,12 @@ wp.hooks.addFilter(
 /**
  * Define additional block-elements for output in Block Editor.
  */
-const setAttributesInEditor = createHigherOrderComponent( ( BlockListBlock ) => {
+function setAttributesInEditor( BlockListBlock ) {
     return ( props ) => {
 
         // If current block is not allowed.
         if ( ! enableSidebarSelectOnBlocks.includes( props.name ) ) {
-            return (
-                <BlockListBlock { ...props } />
-            );
+            return <BlockListBlock { ...props } />;
         }
 
         /**
@@ -261,7 +259,7 @@ const setAttributesInEditor = createHigherOrderComponent( ( BlockListBlock ) => 
 
         return <BlockListBlock { ...props } className={nolgClassName} />
     };
-}, 'withSidebarSelectProp' );
+}
 wp.hooks.addFilter(
     'editor.BlockListBlock',
     'nolg/set-attributes-in-editor',
