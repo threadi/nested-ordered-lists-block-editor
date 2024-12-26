@@ -26,6 +26,12 @@ jobs:
           /usr/bin/php style.php 5 > style.css
           cd ..
 
+      - name: Run WordPress Coding Standard fixes
+        run: vendor/bin/phpcbf --extensions=php --ignore=*/attributes/*,*/example/*,*/css/*,*/vendor/*,*/node_modules/*,*/svn/* --standard=ruleset.xml .
+
+      - name: Run WordPress Coding Standard checks
+        run: vendor/bin/phpcs --extensions=php --ignore=*/attributes/*,*/example/*,*/css/*,*/vendor/*,*/node_modules/*,*/svn/* --standard=ruleset.xml .
+
       - name: Set version number 1
         uses: richardrigutins/replace-in-files@v2
         with:
@@ -52,12 +58,6 @@ jobs:
             rm changelog.md
             rm readme.md
             rm ruleset.xml
-
-      - name: Run WordPress Coding Standard fixes
-        run: vendor/bin/phpcbf --extensions=php --ignore=*/attributes/*,*/example/*,*/css/*,*/vendor/*,*/node_modules/*,*/svn/* --standard=ruleset.xml .
-
-      - name: Run WordPress Coding Standard checks
-        run: vendor/bin/phpcs --extensions=php --ignore=*/attributes/*,*/example/*,*/css/*,*/vendor/*,*/node_modules/*,*/svn/* --standard=ruleset.xml .
 
       - name: Run Plugin Check
         uses: wordpress/plugin-check-action@v1
