@@ -76,7 +76,7 @@ jobs:
       - name: Run Plugin Check
         uses: wordpress/plugin-check-action@v1
         with:
-            build-dir: './temp/'
+            build-dir: './temp/nested-ordered-lists-for-block-editor/'
 
       - name: Create Release
         uses: softprops/action-gh-release@v2
