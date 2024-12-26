@@ -26,15 +26,6 @@ jobs:
           /usr/bin/php style.php 5 > style.css
           cd ..
 
-      - name: Run WordPress Coding Standard fixes
-        run: vendor/bin/phpcbf --extensions=php --ignore=*/attributes/*,*/example/*,*/css/*,*/vendor/*,*/node_modules/*,*/svn/* --standard=ruleset.xml .
-
-      - name: Run WordPress Coding Standard checks
-        run: vendor/bin/phpcs --extensions=php --ignore=*/attributes/*,*/example/*,*/css/*,*/vendor/*,*/node_modules/*,*/svn/* --standard=ruleset.xml .
-
-      - name: Run Plugin Check
-        uses: wordpress/plugin-check-action@v1
-
       - name: Set version number 1
         uses: richardrigutins/replace-in-files@v2
         with:
@@ -49,18 +40,30 @@ jobs:
           search-text: '@@VersionNumber@@'
           replacement-text: ${{ github.ref_name }}
 
+      - name: Cleanup directory
+        run: |
+            rm -fr assets
+            rm -fr build
+            rm -fr releases
+            rm -fr svn
+            rm -fr languages
+            rm -fr example
+            rm -fr src
+            rm changelog.md
+            rm readme.md
+            rm ruleset.xml
+
+      - name: Run WordPress Coding Standard fixes
+        run: vendor/bin/phpcbf --extensions=php --ignore=*/attributes/*,*/example/*,*/css/*,*/vendor/*,*/node_modules/*,*/svn/* --standard=ruleset.xml .
+
+      - name: Run WordPress Coding Standard checks
+        run: vendor/bin/phpcs --extensions=php --ignore=*/attributes/*,*/example/*,*/css/*,*/vendor/*,*/node_modules/*,*/svn/* --standard=ruleset.xml .
+
+      - name: Run Plugin Check
+        uses: wordpress/plugin-check-action@v1
+
       - name: Create ZIP release
         run: |
-          rm -fr assets
-          rm -fr build
-          rm -fr releases
-          rm -fr svn
-          rm -fr languages
-          rm -fr example
-          rm -fr src
-          rm changelog.md
-          rm readme.md
-          rm ruleset.xml
           cd ..
           mv ${{ github.event.repository.name }} nested-ordered-lists-for-block-editor
           zip -r -q nested-ordered-lists-for-block-editor_${{ github.ref_name }}.zip nested-ordered-lists-for-block-editor/* -x "*/.git/*" "*/.github/*" "*/blocks/*/src/*" "*/docs/*" "*/phpcs.xml" "*/composer.json" "*/composer.lock" "*/package.json" "*/package-lock.json" "*/ruleset.xml" "*/.gitignore" "*/vendor/*" "*/node_modules/*" "/.editorconfig"
