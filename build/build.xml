@@ -50,6 +50,12 @@
 		<replace file="${src.dir}/${plugin.slug}-release.php">
 			<replacefilter token="@@VersionNumber@@" value="${plugin.version}" />
 		</replace>
+
+		<delete file="${build.dir}/readme-release.php"/>
+		<copy file="${src.dir}/readme.txt" tofile="${src.dir}/readme-release.txt"/>
+		<replace file="${src.dir}/readme-release.txt">
+			<replacefilter token="@@VersionNumber@@" value="${plugin.version}" />
+		</replace>
 	</target>
 
 	<!-- generate the CSS needed for this plugin with given max level -->
@@ -93,10 +99,12 @@
 			<zipfileset dir="${src.dir}/attributes" prefix="${plugin.slug}/attributes" />
 			<zipfileset dir="${src.dir}/admin" includes="index.php" prefix="${plugin.slug}/attributes" />
 			<zipfileset dir="${src.dir}/css" includes="index.php,style.css" prefix="${plugin.slug}/css" />
-			<zipfileset dir="${src.dir}" includes="uninstall.php,readme.txt,block.json" prefix="${plugin.slug}" />
+			<zipfileset dir="${src.dir}" includes="uninstall.php,block.json" prefix="${plugin.slug}" />
+			<zipfileset dir="${src.dir}" includes="readme-release.txt" fullpath="${plugin.slug}/readme.txt" />
 			<zipfileset dir="${src.dir}" includes="${plugin.slug}-release.php" fullpath="${plugin.slug}/${plugin.slug}.php" />
 		</zip>
 		<delete file="${src.dir}/${plugin.slug}-release.php"/>
+		<delete file="${src.dir}/readme-release.txt"/>
 	</target>
 
 	<target name="help">
