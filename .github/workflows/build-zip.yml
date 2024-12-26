@@ -24,6 +24,7 @@ jobs:
           npm run build
           cd css/
           /usr/bin/php style.php 5 > style.css
+          /usr/bin/php minify_css.php style.css
           cd ..
 
       - name: Run WordPress Coding Standard fixes
