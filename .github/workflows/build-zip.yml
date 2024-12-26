@@ -58,6 +58,7 @@ jobs:
           rm -fr example
           rm -fr src
           rm css/style.php
+          rm css/minify_css.php
           rm changelog.md
           rm readme.md
           rm ruleset.xml
