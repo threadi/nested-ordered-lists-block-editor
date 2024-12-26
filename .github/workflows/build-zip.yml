@@ -66,17 +66,12 @@ jobs:
           cp nested-ordered-lists-for-block-editor_${{ github.ref_name }}.zip ${{ github.event.repository.name }}/
 
       - name: Unzip release ZIP
-        run: |
-            mkdir temp
-            cp nested-ordered-lists-for-block-editor_${{ github.ref_name }}.zip temp
-            cd temp
-            unzip nested-ordered-lists-for-block-editor_${{ github.ref_name }}.zip
-            cd ..
+        run: unzip nested-ordered-lists-for-block-editor_${{ github.ref_name }}.zip
 
       - name: Run Plugin Check
         uses: wordpress/plugin-check-action@v1
         with:
-            build-dir: './temp/'
+            build-dir: './nested-ordered-lists-for-block-editor/'
 
       - name: Create Release
         uses: softprops/action-gh-release@v2
