@@ -15,6 +15,7 @@
         }
     },
 	"require-dev": {
-		"wp-coding-standards/wpcs": "^3.1.0"
+		"wp-coding-standards/wpcs": "^3.1.0",
+		"matthiasmullie/minify": "^1.3"
 	}
 }

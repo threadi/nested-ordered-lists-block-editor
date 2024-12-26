@@ -5,11 +5,16 @@
 ### Added
 
 - Added GitHub action to build release ZIP
+- Added Plugin Check for each release (additional to complete WordPress Coding Standard check)
+- Added minification of generated styles to optimize loading times
+- Added new hooks
 
 ### Changed
 
 - New minimum requirement for WordPress 6.6
 - Moved changelog to GitHub
+- Renamed CSS-handle
+- Optimized version detection for own files
 - Updated dependencies
 
 ## Fixed
