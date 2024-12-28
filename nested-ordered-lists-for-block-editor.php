@@ -57,9 +57,9 @@ Update::get_instance()->init();
  */
 function nolg_add_setting_link( array $links ): array {
 	// get language-dependent URL for the how-to.
-	$url = 'https://github.com/threadi/nested-ordered-lists-block-editor/blob/main/docs/how_to_use.md';
+	$url = 'https://github.com/threadi/nested-ordered-lists-block-editor/blob/master/docs/how_to_use.md';
 	if( Languages::get_instance()->is_german_language() ) {
-		$url = 'https://github.com/threadi/nested-ordered-lists-block-editor/blob/main/docs/how_to_use_de.md';
+		$url = 'https://github.com/threadi/nested-ordered-lists-block-editor/blob/master/docs/how_to_use_de.md';
 	}
 
 	// add the link to the list.
