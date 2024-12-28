@@ -1,0 +1,31 @@
+body ol[type=fontawesome].nolg-list > li:not(.nolg-iconset):before, body ol[type=fontawesome].nolg-list li > ol > li:not(.nolg-iconset):before {
+	font-family: var(--fa-style-family, "Font Awesome 6 Free"), sans-serif;
+	content: '\2b';
+	margin-right: 4px;
+	vertical-align: middle;
+}
+
+body.wp-admin .dashicons-fontawesome:before {
+	background-image: url( ../gfx/font_awesome-logo.svg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	content: '';
+	height: 20px;
+	width: 20px;
+}
+
+body ol[type="fontawesome"] .nolg-iconset {
+	font-family: inherit;
+	display: block;
+	line-height: inherit;
+}
+
+body ol[type="fontawesome"] .nolg-iconset:before {
+	font-family: 'Font Awesome 6 Brands';
+	margin-right: 4px;
+	vertical-align: middle
+}
+
+body.wp-admin .components-toolbar-group .dashicons-fontawesome:before {
+	filter: invert(100);
+}

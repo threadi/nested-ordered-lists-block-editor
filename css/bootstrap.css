@@ -1,0 +1,18 @@
+body ol[type=bootstrap].nolg-list > li::before, body ol[type=bootstrap].nolg-list li > ol > li::before {
+	font-family: 'bootstrap-icons', sans-serif;
+	content: '\f4fe';
+	vertical-align: middle;
+}
+
+body.wp-admin .dashicons-bootstrap:before {
+	background-image: url( ../gfx/bootstrap-logo.svg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	content: '';
+	height: 15px;
+	width: 24px;
+}
+
+body.wp-admin .components-toolbar-group .dashicons-bootstrap:before {
+	filter: invert(100);
+}

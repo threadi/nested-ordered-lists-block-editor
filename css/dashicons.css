@@ -1,0 +1,26 @@
+body ol[type=dashicons].nolg-list > li:not(.nolg-iconset):before, body ol[type=dashicons].nolg-list li > ol > li:not(.nolg-iconset):before {
+	font-family: 'dashicons', sans-serif;
+	content: "\f132";
+	vertical-align: middle;
+}
+
+body.wp-admin .dashicons-dashicons:before {
+	content: "\f120";
+	font-family: dashicons, sans-serif;
+	height: 15px;
+	width: 24px;
+}
+
+body ol[type="dashicons"] .nolg-iconset {
+	display: block;
+	line-height: inherit;
+	text-align: inherit;
+	font-size: inherit;
+	font-family: inherit;
+}
+
+body ol[type="dashicons"] .nolg-iconset:before {
+	font-family: 'dashicons', sans-serif;
+	margin-right: 4px;
+	vertical-align: middle
+}

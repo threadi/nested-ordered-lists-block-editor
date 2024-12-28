@@ -42,8 +42,11 @@ body ol[type=i2] > li {
 body ol.nolg-list, body ol.nolg-list ol {
 	list-style: none;
 }
-body ol.nolg-list > li {
-	list-style: none !important;
+body ol.nolg-list > li { list-style: none !important; }
+
+body ol.nolg-list li {
+	height: auto;
+	width: auto;
 }
 
 body ol.nolg-list, body ol.nolg-list ol {
@@ -52,11 +55,6 @@ body ol.nolg-list, body ol.nolg-list ol {
 
 body ol.nolg-list, body ol.nolg-list:not(.nolg-list-intent) ol {
 	padding-left: 0;
-}
-
-body ol.nolg-list > li:before, body ol.nolg-list li > ol > li:before {
-	counter-increment: l1;
-	content: counters(l1, ".") ". ";
 }
 
 body ol.nolg-list[type=a1] > li:before {
@@ -79,15 +77,11 @@ body ol.nolg-list[type=i2] > li:before {
 	content: counters(l1, ".", upper-roman) " ";
 }
 
-body ol.nolg-list li ol > li:before {
-	content: counters(l1, ".") " ";
-}
-
 body ol.nolg-list[reversed] > li:before {
 	counter-increment: l1 -1;
 }
 
-body ol.nolg-list[start] > li:first-child:before, body ol.nolg-list[reversed] > li:first-child:before {
+body ol.nolg-list[start] > li:not(.nolg-iconset):first-child:before, body ol.nolg-list[reversed] > li:not(.nolg-iconset):first-child:before {
 	counter-increment: none !important;
 }
 

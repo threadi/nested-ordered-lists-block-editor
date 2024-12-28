@@ -4,6 +4,7 @@
 
 ### Added
 
+- Added 3 new iconsets for the lists
 - Added GitHub action to build release ZIP
 - Added Plugin Check for each release (additional to complete WordPress Coding Standard check)
 - Added minification of generated styles to optimize loading times
@@ -11,15 +12,21 @@
 
 ### Changed
 
-- New minimum requirement for WordPress 6.6
+- New minimum requirement to WordPress 6.6 and PHP 8.1
 - Moved changelog to GitHub
 - Renamed CSS-handle
 - Optimized version detection for own files
+- Optimized loading of style of this plugin: only if a list block is used
 - Updated dependencies
 
-## Fixed
+### Removed
+
+- Removed language files from release
+
+### Fixed
 
 - Inherited settings not working
+- Fixed content of blueprint for Playground-preview
 
 ## [1.1.3] - 05.07.2024
 

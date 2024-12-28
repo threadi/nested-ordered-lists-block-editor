@@ -26,6 +26,14 @@ jobs:
           /usr/bin/php style.php 5 > style.css
           /usr/bin/php minify_css.php style.css
           cd ..
+          mkdir -p css/fontawesome/
+          mkdir -p css/webfonts/
+          cp node_modules/@fortawesome/fontawesome-free/css/all.css css/fontawesome/fontawesome6.css
+          cp -r node_modules/@fortawesome/fontawesome-free/webfonts/ css/
+          mkdir -p css/bootstrap/fonts/
+          cp node_modules/bootstrap-icons/font/bootstrap-icons.css css/bootstrap/bootstrap-icons.css
+          cp -r node_modules/bootstrap-icons/font/fonts/ css/bootstrap/
+          cp node_modules/wordpress-icon-picker/dist/style.css css/iconpicker.css
 
       - name: Run WordPress Coding Standard fixes
         run: vendor/bin/phpcbf --extensions=php --ignore=*/attributes/*,*/example/*,*/css/*,*/vendor/*,*/node_modules/*,*/svn/* --standard=ruleset.xml .
@@ -58,6 +66,7 @@ jobs:
           rm -fr example
           rm -fr src
           rm css/style.php
+          rm css/minify_css.php
           rm changelog.md
           rm readme.md
           rm ruleset.xml
