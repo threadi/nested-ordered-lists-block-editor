@@ -9,6 +9,7 @@
 - Added Plugin Check for each release (additional to complete WordPress Coding Standard check)
 - Added minification of generated styles to optimize loading times
 - Added new hooks
+- Added help page for first steps
 
 ### Changed
 

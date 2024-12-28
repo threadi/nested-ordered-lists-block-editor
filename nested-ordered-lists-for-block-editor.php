@@ -21,6 +21,7 @@ use nestedOrderedLists\Iconsets\Bootstrap;
 use nestedOrderedLists\Iconsets\Dashicons;
 use nestedOrderedLists\Iconsets\Fontawesome;
 use nestedOrderedLists\Installer;
+use nestedOrderedLists\Languages;
 use nestedOrderedLists\Update;
 
 // prevent direct access.
@@ -46,6 +47,28 @@ register_deactivation_hook( NOLG_PLUGIN, array( Installer::get_instance(), 'deac
 
 // check for update of the plugin.
 Update::get_instance()->init();
+
+/**
+ * Add links in plugin list.
+ *
+ * @param array $links List of links on plugin in plugin list.
+ *
+ * @return array
+ */
+function nolg_add_setting_link( array $links ): array {
+	// get language-dependent URL for the how-to.
+	$url = 'https://github.com/threadi/nested-ordered-lists-block-editor/blob/main/docs/how_to_use.md';
+	if( Languages::get_instance()->is_german_language() ) {
+		$url = 'https://github.com/threadi/nested-ordered-lists-block-editor/blob/main/docs/how_to_use_de.md';
+	}
+
+	// add the link to the list.
+	$links[] = '<a href="' . esc_url( $url ) . '" target="_blank">' . esc_html__('How to use', 'nested-ordered-lists-for-block-editor') . '</a>';
+
+	// return resulting list of links.
+	return $links;
+}
+add_filter( 'plugin_action_links_' . plugin_basename( NOLG_PLUGIN ), 'nolg_add_setting_link' );
 
 /**
  * Register the frontend styles.

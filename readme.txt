@@ -52,10 +52,20 @@ Yes, since version 2.0.0 you can use Bootstrap-, Dash- or FontAwesome-icons on e
 == Changelog ==
 
 = @@VersionNumber@@ =
-* Added GitHub action to build release ZIP
-* New minimum requirement for WordPress 6.6
-* Moved changelog to GitHub
-* Updated dependencies
-* Fixed: inherited settings not working
+- Added 3 new iconsets for the lists
+- Added GitHub action to build release ZIP
+- Added Plugin Check for each release (additional to complete WordPress Coding Standard check)
+- Added minification of generated styles to optimize loading times
+- Added new hooks
+- Added help page for first steps
+- New minimum requirement to WordPress 6.6 and PHP 8.1
+- Moved changelog to GitHub
+- Renamed CSS-handle
+- Optimized version detection for own files
+- Optimized loading of style of this plugin: only if a list block is used
+- Updated dependencies
+- Removed language files from release
+- Inherited settings has been not working
+- Fixed content of blueprint for Playground-preview
 
 [older changes](https://github.com/threadi/nested-ordered-lists-block-editor/changelog.md)
