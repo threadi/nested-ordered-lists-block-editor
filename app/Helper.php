@@ -10,6 +10,9 @@ namespace nestedOrderedLists;
 // prevent direct access.
 defined( 'ABSPATH' ) || exit;
 
+use WP_Post;
+use WP_Post_Type;
+
 /**
  * Helper-method.
  */
@@ -171,5 +174,56 @@ class Helper {
 			 */
 			apply_filters( 'nolg_generate_classname', $subtype ),
 		);
+	}
+
+	/**
+	 * Checks whether a given plugin is active.
+	 *
+	 * Used because WP's own function is_plugin_active() is not accessible everywhere.
+	 *
+	 * @param string $plugin Path to the requested plugin relative to plugin-directory.
+	 * @return bool
+	 */
+	public static function is_plugin_active( string $plugin ): bool {
+		return in_array( $plugin, (array) get_option( 'active_plugins', array() ), true );
+	}
+
+	/**
+	 * Return the name of this plugin.
+	 *
+	 * @return string
+	 */
+	public static function get_plugin_name(): string {
+		$plugin_data = get_plugin_data( NOLG_PLUGIN );
+		if ( ! empty( $plugin_data ) && ! empty( $plugin_data['Name'] ) ) {
+			return $plugin_data['Name'];
+		}
+		return '';
+	}
+
+	/**
+	 * Get current URL in frontend and backend.
+	 *
+	 * @return string
+	 */
+	public static function get_current_url(): string {
+		if ( is_admin() && ! empty( $_SERVER['REQUEST_URI'] ) ) {
+			return admin_url( basename( sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) ) ) );
+		}
+
+		// set return value for page url.
+		$page_url = '';
+
+		// get actual object.
+		$object = get_queried_object();
+		if ( $object instanceof WP_Post_Type ) {
+			$page_url = get_post_type_archive_link( $object->name );
+		}
+		if ( $object instanceof WP_Post ) {
+			$page_url = get_permalink( $object->ID );
+		}
+
+		// return result.
+		return $page_url;
 	}
 }

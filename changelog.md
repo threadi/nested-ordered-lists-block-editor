@@ -10,6 +10,7 @@
 - Added minification of generated styles to optimize loading times
 - Added new hooks
 - Added help page for first steps
+- Added check if Block Editor is disabled and show warning about it
 
 ### Changed
 
