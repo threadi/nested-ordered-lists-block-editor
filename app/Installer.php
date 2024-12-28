@@ -50,6 +50,17 @@ class Installer {
 	 * @return void
 	 */
 	public function activation(): void {
+		// load nothing from this plugin if Block Editor is disabled.
+		if ( ! ( function_exists( 'register_block_type' ) && ! Helper::is_plugin_active( 'classic-editor/classic-editor.php' ) ) ) {
+			// show hint about the problem.
+			$transient_obj = Transients::get_instance()->add();
+			$transient_obj->set_name( 'nolg_not_usable' );
+			$transient_obj->set_message( '<strong>' . __( 'Plugin will not be usable!', 'nested-ordered-lists-for-block-editor' ) . '</strong><br>' . __( 'The Block Editor is disabled in your WordPress project. You will not be able to use <em>Nested Ordered List for Block Editor</em>.', 'nested-ordered-lists-for-block-editor' ) );
+			$transient_obj->set_type( 'error' );
+			$transient_obj->save();
+			return;
+		}
+
 		if ( ! get_option( 'nolgVersion', false ) ) {
 			add_option( 'nolgVersion', NOLG_VERSION, '', true );
 		}

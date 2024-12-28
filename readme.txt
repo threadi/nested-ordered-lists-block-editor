@@ -58,6 +58,7 @@ Yes, since version 2.0.0 you can use Bootstrap-, Dash- or FontAwesome-icons on e
 - Added minification of generated styles to optimize loading times
 - Added new hooks
 - Added help page for first steps
+- Added check if Block Editor is disabled and show warning about it
 - New minimum requirement to WordPress 6.6 and PHP 8.1
 - Moved changelog to GitHub
 - Renamed CSS-handle

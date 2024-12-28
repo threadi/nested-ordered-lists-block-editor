@@ -22,6 +22,7 @@ use nestedOrderedLists\Iconsets\Dashicons;
 use nestedOrderedLists\Iconsets\Fontawesome;
 use nestedOrderedLists\Installer;
 use nestedOrderedLists\Languages;
+use nestedOrderedLists\Transients;
 use nestedOrderedLists\Update;
 
 // prevent direct access.
@@ -38,6 +39,9 @@ const NOLG_PLUGIN = __FILE__;
 // set version.
 const NOLG_VERSION = '@@VersionNumber@@';
 
+// set name for transient list.
+const NOLG_TRANSIENTS_LIST = 'nolg_transients';
+
 // embed necessary files.
 require_once __DIR__ . '/vendor/autoload.php';
 
@@ -47,6 +51,14 @@ register_deactivation_hook( NOLG_PLUGIN, array( Installer::get_instance(), 'deac
 
 // check for update of the plugin.
 Update::get_instance()->init();
+
+// initialize notices.
+Transients::get_instance()->init();
+
+// disable all further functions is block editor is disabled.
+if ( ! ( function_exists( 'register_block_type' ) && ! Helper::is_plugin_active( 'classic-editor/classic-editor.php' ) ) ) {
+	return;
+}
 
 /**
  * Add links in plugin list.
@@ -58,12 +70,12 @@ Update::get_instance()->init();
 function nolg_add_setting_link( array $links ): array {
 	// get language-dependent URL for the how-to.
 	$url = 'https://github.com/threadi/nested-ordered-lists-block-editor/blob/master/docs/how_to_use.md';
-	if( Languages::get_instance()->is_german_language() ) {
+	if ( Languages::get_instance()->is_german_language() ) {
 		$url = 'https://github.com/threadi/nested-ordered-lists-block-editor/blob/master/docs/how_to_use_de.md';
 	}
 
 	// add the link to the list.
-	$links[] = '<a href="' . esc_url( $url ) . '" target="_blank">' . esc_html__('How to use', 'nested-ordered-lists-for-block-editor') . '</a>';
+	$links[] = '<a href="' . esc_url( $url ) . '" target="_blank">' . esc_html__( 'How to use', 'nested-ordered-lists-for-block-editor' ) . '</a>';
 
 	// return resulting list of links.
 	return $links;
