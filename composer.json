@@ -1,6 +1,6 @@
 {
     "name": "threadi/nested-ordered-lists",
-	"version": "1.2.0",
+	"version": "2.0.0",
     "scripts": {
         "post-install-cmd": [
             "\"vendor/bin/phpcs\" --config-set installed_paths vendor/wp-coding-standards/wpcs,vendor/phpcsstandards/phpcsutils,vendor/phpcsstandards/phpcsextra"
@@ -12,8 +12,18 @@
     "config": {
         "allow-plugins": {
             "dealerdirect/phpcodesniffer-composer-installer": true
-        }
+        },
+		"optimize-autoloader": true,
+		"classmap-authoritative": true,
+		"apcu-autoloader": true,
+		"prepend-autoloader": false,
+		"platform-check": false
     },
+	"autoload": {
+		"psr-4": {
+			"nestedOrderedLists\\": "app/"
+		}
+	},
 	"require-dev": {
 		"wp-coding-standards/wpcs": "^3.1.0",
 		"matthiasmullie/minify": "^1.3"

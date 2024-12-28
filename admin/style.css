@@ -3,7 +3,12 @@
 }
 
 /* Fix for Gutenberg > v14 */
-body ol.nolg-list li > div { display: inline-block; }
+body ol.nolg-list li > div {
+	display: inline-block;
+}
 
 /* Fix for Gutenberg > v14 */
-body .editor-styles-wrapper ol.nolg-list [data-block] { margin-top: 0;margin-bottom: 0 }
+body .editor-styles-wrapper ol.nolg-list [data-block] {
+	margin-top: 0;
+	margin-bottom: 0;
+}

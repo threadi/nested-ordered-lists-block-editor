@@ -43,7 +43,11 @@ Yes, as follows: enter the desired content between the individual list blocks. T
 
 = Can I use different list-styles in one list? =
 
-Yes, since WordPress 6.3 you could create list where this plugin supports to set different list-styles for each list.
+Yes, you could set different list-styles for each list.
+
+= Can I use other icons as list points? =
+
+Yes, since version 2.0.0 you can use Bootstrap-, Dash- or FontAwesome-icons on each list.
 
 == Changelog ==
 
