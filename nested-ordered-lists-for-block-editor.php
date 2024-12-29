@@ -171,6 +171,17 @@ function nolg_assets(): void {
 			array(),
 			Helper::get_file_version( plugin_dir_path( __FILE__ ) . 'css/iconpicker.css' )
 		);
+
+		// add ja-variables for block editor.
+		wp_add_inline_script(
+			'nolg-list',
+			'window.nolg_config = ' . wp_json_encode(
+				array(
+					'support_url' => Helper::get_plugin_support_url(),
+				)
+			),
+			'before'
+		);
 	}
 
 	// add frontend-css.

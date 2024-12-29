@@ -226,4 +226,13 @@ class Helper {
 		// return result.
 		return $page_url;
 	}
+
+	/**
+	 * Return the plugin support url: the forum on WordPress.org.
+	 *
+	 * @return string
+	 */
+	public static function get_plugin_support_url(): string {
+		return 'https://wordpress.org/support/plugin/nested-ordered-lists-for-block-editor/';
+	}
 }

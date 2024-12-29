@@ -16,7 +16,8 @@ import classnames from 'classnames';
 import {
     __experimentalNumberControl as NumberControl,
 	__experimentalToolsPanelItem as ToolsPanelItem,
-	RangeControl
+	RangeControl,
+	ExternalLink
 } from '@wordpress/components';
 const { createHigherOrderComponent } = wp.compose;
 const { Fragment, useEffect } = wp.element;
@@ -379,6 +380,10 @@ const addOptionsToListBlock = createHigherOrderComponent( ( BlockEdit ) => {
                         }
                         {nestedList && createElements(list_max_level, props)}
                     </PanelBody>
+					<PanelBody initialOpen={false} title={ __( 'Do you need help with the advanced list control settings?', 'nested-ordered-lists-for-block-editor' ) }>
+						<p>{__( 'You are welcome to contact our support forum if you have any questions.', 'nested-ordered-lists-for-block-editor' )}</p>
+						<p>{<ExternalLink href={ window.nolg_config.support_url }>{ __( 'Go to supportforum', 'nested-ordered-lists-for-block-editor' ) }</ExternalLink>}</p>
+					</PanelBody>
                 </InspectorControls>}
                 {attributes.ordered && inheritedSettings && <InspectorControls>
                     <PanelBody
