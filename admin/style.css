@@ -5,6 +5,7 @@
 /* Fix for Gutenberg > v14 */
 body ol.nolg-list li > div {
 	display: inline-block;
+	text-indent: 0;
 }
 
 /* Fix for Gutenberg > v14 */

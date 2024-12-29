@@ -53,7 +53,12 @@ body ol.nolg-list, body ol.nolg-list ol {
 	counter-reset: l1 0 l2 0 l3 0;
 }
 
-body ol.nolg-list, body ol.nolg-list:not(.nolg-list-intent) ol {
+body :not(li) > ol.nolg-list {
+	padding-left: 0;
+	text-indent: 0 !important;
+}
+
+body ol.nolg-list {
 	padding-left: 0;
 }
 

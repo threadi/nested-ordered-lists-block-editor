@@ -15,6 +15,8 @@ const { __ } = wp.i18n;
 import classnames from 'classnames';
 import {
     __experimentalNumberControl as NumberControl,
+	__experimentalToolsPanelItem as ToolsPanelItem,
+	RangeControl
 } from '@wordpress/components';
 const { createHigherOrderComponent } = wp.compose;
 const { Fragment, useEffect } = wp.element;
@@ -65,6 +67,12 @@ function getCounterReset( props, attributes ) {
     if( attributes.type ) {
         props.type = attributes.type;
     }
+
+	// set indent.
+	props.style = '';
+	if( attributes.listIntent && attributes.listIndention ) {
+		props.style = { textIndent: attributes.listIndention };
+	}
 
     // return result.
     return props;
@@ -196,6 +204,7 @@ const addListAttributes = ( settings, name ) => {
     settings.attributes = Object.assign(settings.attributes, {
         nestedList: { type: 'boolean', default: false },
         listIntent: { type: 'boolean', default: false },
+		listIndention: { type: 'integer', default: 0 },
         inheritSettings: { type: 'boolean', default: true },
         type: { type: 'string', default: undefined },
         startlevel: { type: 'object', default: generateAttributeLevelArray(list_max_level) },
@@ -288,8 +297,6 @@ const addOptionsToListBlock = createHigherOrderComponent( ( BlockEdit ) => {
             }
         }
 
-		console.log(props, BlockEdit)
-
         // create output.
         return (
             <Fragment>
@@ -346,8 +353,9 @@ const addOptionsToListBlock = createHigherOrderComponent( ( BlockEdit ) => {
                                     nestedList: value,
                                 } );
                             } }
+							help={__( 'If enabled you will be able to use nested ordered lists.', 'nested-ordered-lists-for-block-editor' )}
                         />
-                        <CheckboxControl
+						{nestedList && <CheckboxControl
                             label={__('Inherit settings', 'nested-ordered-lists-for-block-editor')}
                             checked={ inheritSettings }
                             onChange={ ( value ) => {
@@ -355,8 +363,8 @@ const addOptionsToListBlock = createHigherOrderComponent( ( BlockEdit ) => {
                                     inheritSettings: value,
                                 } );
                             } }
-							disabled={!nestedList}
-                        />
+							help={__( 'If enabled the settings of the main list will be inherited to the child lists.', 'nested-ordered-lists-for-block-editor' )}
+                        />}
                         {nestedList &&
                             <CheckboxControl
                                 label={__('with indentation', 'nested-ordered-lists-for-block-editor')}
@@ -366,6 +374,7 @@ const addOptionsToListBlock = createHigherOrderComponent( ( BlockEdit ) => {
                                         listIntent: value,
                                     });
                                 }}
+								help={__( 'If enabled the list will be displayed with indentation.', 'nested-ordered-lists-for-block-editor' )}
                             />
                         }
                         {nestedList && createElements(list_max_level, props)}
@@ -378,13 +387,34 @@ const addOptionsToListBlock = createHigherOrderComponent( ( BlockEdit ) => {
                         <p>{ __( 'Settings inherited from parent list.', 'nested-ordered-lists-for-block-editor' ) }</p>
                     </PanelBody>
                 </InspectorControls>}
-            </Fragment>
-        );
-    };
-}, 'withSidebarSelect' );
+				<InspectorControls group="dimensions">
+					<ToolsPanelItem
+						hasValue={ () => !!attributes.listIndention }
+						label={ __( 'Indentation', 'nested-ordered-lists-for-block-editor' ) }
+						isShownByDefault={ true }
+						resetAllFilter={ () => ( { listIndention: 0 } ) }
+						panelId={ attributes.clientId }
+					>
+						<RangeControl
+							__nextHasNoMarginBottom
+							__next40pxDefaultSize
+							label={ __( 'Indentation', 'nested-ordered-lists-for-block-editor' ) }
+							value={ attributes.listIndention }
+							onChange={ ( value ) => { setAttributes( { listIndention: value } ) } }
+							min={ 0 }
+							max={ 500 }
+							disabled={ !attributes.listIntent }
+							help={__( 'Set the indention for this list and its sub lists.', 'nested-ordered-lists-for-block-editor' )}
+						/>
+					</ToolsPanelItem>
+				</InspectorControls>
+			</Fragment>
+		);
+	};
+}, 'withSidebarSelect');
 wp.hooks.addFilter(
-    'editor.BlockEdit',
-    'nolg/add-option-in-sidebar',
+	'editor.BlockEdit',
+	'nolg/add-option-in-sidebar',
 	addOptionsToListBlock
 );
 
@@ -407,9 +437,11 @@ function setAttributesInEditor( BlockListBlock ) {
 				props.setAttributes( {
 					nestedList: parentAttributes[0].attributes.nestedList,
 					ordered: parentAttributes[0].attributes.ordered,
-					type: parentAttributes[0].attributes.type
+					type: parentAttributes[0].attributes.type,
+					listIntent: parentAttributes[0].attributes.listIntent,
+					listIndention: parentAttributes[0].attributes.listIndention
 				} );
-			}, []);
+			}, [parentAttributes[0].attributes]);
 		}
 
 		// get attributes.
@@ -471,6 +503,8 @@ const saveAttributesForFrontend = ( extraProps, blockType, attributes ) => {
 	if( parentAttributes[0] && parentAttributes[0].attributes.nestedList && parentAttributes[0].attributes.inheritSettings ) {
 		attributes.ordered = parentAttributes[0].attributes.ordered;
 		attributes.type = parentAttributes[0].attributes.type;
+		attributes.listIntent = parentAttributes[0].attributes.listIntent;
+		attributes.listIndention = parentAttributes[0].attributes.listIndention;
 	}
 
 	// get attributes.

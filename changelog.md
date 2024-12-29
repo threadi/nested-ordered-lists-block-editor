@@ -5,6 +5,7 @@
 ### Added
 
 - Added 3 new iconsets for the lists
+- Added value for indention of lists
 - Added GitHub action to build release ZIP
 - Added Plugin Check for each release (additional to complete WordPress Coding Standard check)
 - Added minification of generated styles to optimize loading times

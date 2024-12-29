@@ -53,6 +53,7 @@ Yes, since version 2.0.0 you can use Bootstrap-, Dash- or FontAwesome-icons on e
 
 = @@VersionNumber@@ =
 - Added 3 new iconsets for the lists
+- Added value for indention of lists
 - Added GitHub action to build release ZIP
 - Added Plugin Check for each release (additional to complete WordPress Coding Standard check)
 - Added minification of generated styles to optimize loading times
