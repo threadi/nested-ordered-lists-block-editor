@@ -73,6 +73,8 @@ jobs:
           cd ..
           mv ${{ github.event.repository.name }} nested-ordered-lists-for-block-editor
           zip -r -q nested-ordered-lists-for-block-editor_${{ github.ref_name }}.zip nested-ordered-lists-for-block-editor/* -x "*/.git/*" "*/.github/*" "*/blocks/*/src/*" "*/docs/*" "*/phpcs.xml" "*/composer.json" "*/composer.lock" "*/package.json" "*/package-lock.json" "*/ruleset.xml" "*/.gitignore" "*/vendor/*" "*/node_modules/*" "/.editorconfig"
+          zip -ur nested-ordered-lists-for-block-editor_${{ github.ref_name }}.zip nested-ordered-lists-for-block-editor/vendor/autoload.php
+          zip -ur nested-ordered-lists-for-block-editor_${{ github.ref_name }}.zip nested-ordered-lists-for-block-editor/vendor/composer/*
           mv nested-ordered-lists-for-block-editor ${{ github.event.repository.name }}
           cp nested-ordered-lists-for-block-editor_${{ github.ref_name }}.zip ${{ github.event.repository.name }}/
 
