@@ -12,7 +12,7 @@ Extends the list block in Block Editor with options for numbered ordered lists s
 
 == Description ==
 
-Extends the list block in Block Editor with options for numbered ordered lists such as 1.1, 1.2, 1.3, 2.1 etc.! Use individual numbers up to the 4th level. Also reversed lists (2.2, 2.1, 1.3, 1.2, 1.1 etc.) and additional list-styles (like upper- and lowercase roman and alphabet) are supported.
+Extends the list block in Block Editor with options for numbered ordered lists such as 1.1, 1.2, 1.3, 2.1 etc.! Use individual numbers up to the 4th level. Also reversed lists (2.2, 2.1, 1.3, 1.2, 1.1 etc.), additional list-styles (like upper- and lowercase roman and alphabet) and custom icons (with Bootstrap, Dashicons or Fontawesome) are supported.
 
 The development repository is on [GitHub](https://github.com/threadi/nested-ordered-lists-block-editor/).
 
