@@ -71,4 +71,4 @@ Yes, since version 2.0.0 you can use Bootstrap-, Dash- or FontAwesome-icons on e
 - Inherited settings has been not working
 - Fixed content of blueprint for Playground-preview
 
-[older changes](https://github.com/threadi/nested-ordered-lists-block-editor/changelog.md)
+[older changes](https://github.com/threadi/nested-ordered-lists-block-editor/blob/master/changelog.md)
