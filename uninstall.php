@@ -10,6 +10,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+use nestedOrderedLists\Transient;
+use nestedOrderedLists\Transients;
+
 // if uninstall.php is not called by WordPress, die.
 if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	die;
@@ -45,3 +48,17 @@ $wpdb->delete( $wpdb->term_taxonomy, array( 'taxonomy' => 'nolg_icon_set' ), arr
 
 // cleanup options.
 delete_option( 'nolg_icon_set_children' );
+
+// delete transients.
+foreach ( Transients::get_instance()->get_transients() as $transient ) {
+	// bail if object is not a transient object.
+	if ( ! $transient instanceof Transient ) {
+		continue;
+	}
+
+	// delete the dismiss setting.
+	$transient->delete_dismiss();
+
+	// delete the transient.
+	$transient->delete();
+}
