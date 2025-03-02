@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.1.1] - 02.03.2025
+
+### Fixed
+
+- Fixed missing class during uninstallation of plugin
+
 ## [2.1.0] - 02.03.2025
 
 ### Added

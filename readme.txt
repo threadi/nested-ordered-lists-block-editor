@@ -56,6 +56,9 @@ Yes, since version 2.0.0 you can use Bootstrap-, Dash- or FontAwesome-icons on e
 == Changelog ==
 
 = @@VersionNumber@@ =
+- Fixed missing class during uninstallation of plugin
+
+= 2.1.0 =
 - Added link to support forum on our plugin in plugin list
 - Added hook documentation
 - Delete transients on deinstallation

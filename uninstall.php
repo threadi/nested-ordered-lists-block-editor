@@ -18,6 +18,12 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	die;
 }
 
+// set name for transient list.
+const NOLG_TRANSIENTS_LIST = 'nolg_transients';
+
+// embed necessary files.
+require_once __DIR__ . '/vendor/autoload.php';
+
 // delete the content of all taxonomies.
 global $wpdb;
 $terms = $wpdb->get_results(
