@@ -14,14 +14,18 @@ Extends the list block in Block Editor with options for numbered ordered lists s
 
 Extends the list block in Block Editor with options for numbered ordered lists such as 1.1, 1.2, 1.3, 2.1 etc.! Use individual numbers up to the 4th level. Also reversed lists (2.2, 2.1, 1.3, 1.2, 1.1 etc.), additional list-styles (like upper- and lowercase roman and alphabet) and custom icons (with Bootstrap, Dashicons or Fontawesome) are supported.
 
-The development repository is on [GitHub](https://github.com/threadi/nested-ordered-lists-block-editor/).
-
 == Usage ==
 
 1. Open a page where you want to use nested ordered lists.
 2. Add a normal list block.
 3. Choose ordered list to be able to use its list-style.
 4. Check "Use nested ordered lists" on the right to enable them.
+
+== Repository and documentation ==
+
+You find some documentations [here](https://github.com/threadi/nested-ordered-lists-block-editor/tree/master/docs).
+
+The development repository is on [GitHub](https://github.com/threadi/nested-ordered-lists-block-editor/).
 
 == Screenshots ==
 
@@ -52,23 +56,15 @@ Yes, since version 2.0.0 you can use Bootstrap-, Dash- or FontAwesome-icons on e
 == Changelog ==
 
 = @@VersionNumber@@ =
-- Added 3 new iconsets for the lists
-- Added value for indention of lists
-- Added GitHub action to build release ZIP
-- Added Plugin Check for each release (additional to complete WordPress Coding Standard check)
-- Added minification of generated styles to optimize loading times
-- Added new hooks
-- Added help page for first steps
-- Added hint for supportforum
-- Added check if Block Editor is disabled and show warning about it
-- New minimum requirement to WordPress 6.6 and PHP 8.1
-- Moved changelog to GitHub
-- Renamed CSS-handle
-- Optimized version detection for own files
-- Optimized loading of style of this plugin: only if a list block is used
-- Updated dependencies
-- Removed language files from release
-- Inherited settings has been not working
-- Fixed content of blueprint for Playground-preview
+- Added link to support forum on our plugin in plugin list
+- Added hook documentation
+- Delete transients on deinstallation
+- Also check for VIP-Go WordPress Coding Standards for better checks before releases
+- Fixed missing loading of translations for Block additions
+- Fixed some typos
+
+### Removed
+
+- Removed unused code
 
 [older changes](https://github.com/threadi/nested-ordered-lists-block-editor/blob/master/changelog.md)

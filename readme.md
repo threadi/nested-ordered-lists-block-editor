@@ -85,3 +85,15 @@ Run `ant generate-css` in _build/_.
 ### Repair
 
 `vendor/bin/phpcbf --extensions=php --ignore=*/attributes/*,*/example/*,*/css/*,*/vendor/*,*/node_modules/*,*/svn/* --standard=ruleset.xml .`
+
+## Generate documentation
+
+`vendor/bin/wp-documentor parse app --format=markdown --output=docs/hooks.md --prefix=nolg_`
+
+## Check for WordPress VIP Coding Standards
+
+Hint: this check runs against the VIP-GO-platform which is not our target for this plugin. Many warnings can be ignored.
+
+### Run
+
+`vendor/bin/phpcs --extensions=php --ignore=*/attributes/*,*/example/*,*/css/*,*/vendor/*,*/node_modules/*,*/svn/* --standard=WordPress-VIP-Go .`
