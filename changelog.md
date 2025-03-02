@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.0.1] - 02.03.2025
+
+### Added
+
+- Added link to support forum on our plugin in plugin list
+
+### Fixed
+
+- Fixed some typos
+
 ## [2.0.0] - 03.01.2025
 
 ### Added
