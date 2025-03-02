@@ -1,5 +1,32 @@
 # Changelog
 
+## [2.1.1] - 02.03.2025
+
+### Fixed
+
+- Fixed missing class during uninstallation of plugin
+
+## [2.1.0] - 02.03.2025
+
+### Added
+
+- Added link to support forum on our plugin in plugin list
+- Added hook documentation
+
+### Optimized
+
+- Delete transients on deinstallation
+- Also check for VIP-Go WordPress Coding Standards for better checks before releases
+
+### Fixed
+
+- Fixed missing loading of translations for Block additions
+- Fixed some typos
+
+### Removed
+
+- Removed unused code
+
 ## [2.0.0] - 03.01.2025
 
 ### Added

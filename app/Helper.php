@@ -17,50 +17,6 @@ use WP_Post_Type;
  * Helper-method.
  */
 class Helper {
-
-	/**
-	 * Return possible mime-types.
-	 *
-	 * @return array
-	 */
-	public static function get_mime_types(): array {
-		// get the WordPress-list of mime-types.
-		$mime_types = wp_get_mime_types();
-
-		// add general mime-types.
-		$mime_types['application'] = 'application';
-		$mime_types['audio']       = 'audio';
-		$mime_types['image']       = 'image';
-		$mime_types['video']       = 'video';
-		ksort( $mime_types );
-
-		/**
-		 * Filter the list of possible mimetypes.
-		 *
-		 * @param array $mime_types List of the mime types.
-		 * @since 2.0.0 Available since 2.0.0
-		 */
-		return apply_filters( 'nolg_mime_types', $mime_types );
-	}
-
-	/**
-	 * Return the filename for the style-file.
-	 *
-	 * @return string
-	 */
-	private static function get_style_filename(): string {
-		$filename = 'nolg-style.css';
-
-		/**
-		 * Set the filename for the style.css which will be saved in upload-directory.
-		 *
-		 * @since 2.0.0 Available since 2.0.0.
-		 *
-		 * @param string $filename The list of iconsets.
-		 */
-		return apply_filters( 'nolg_style_filename', $filename );
-	}
-
 	/**
 	 * Add generic iconsets, if they do not exist atm.
 	 *
@@ -133,47 +89,6 @@ class Helper {
 		 * @param string $filepath The absolute path to the requested file.
 		 */
 		return apply_filters( 'nolg_file_version', $plugin_version, $filepath );
-	}
-
-	/**
-	 * Get type and subtype from given mimetype.
-	 *
-	 * @param string $mimetype The mimetype to split.
-	 * @return array
-	 */
-	public static function get_type_and_subtype_from_mimetype( string $mimetype ): array {
-		// split the string.
-		$mimetype_array = explode( '/', $mimetype );
-
-		// get type.
-		$type = $mimetype_array[0];
-
-		// get subtype, if set.
-		$subtype = '';
-		if ( ! empty( $mimetype_array[1] ) ) {
-			$subtype = $mimetype_array[1];
-		}
-
-		// return resulting values.
-		return array(
-			/**
-			 * Filter the string name of a mime type.
-			 *
-			 * @since 3.4.0 Available since 3.4.0
-			 *
-			 * @param string $type The name of the mime type.
-			 */
-			apply_filters( 'nolg_generate_classname', $type ),
-
-			/**
-			 * Filter the string name of a mime type.
-			 *
-			 * @since 3.4.0 Available since 3.4.0
-			 *
-			 * @param string $type The name of the mime type.
-			 */
-			apply_filters( 'nolg_generate_classname', $subtype ),
-		);
 	}
 
 	/**

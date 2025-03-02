@@ -83,6 +83,38 @@ function nolg_add_setting_link( array $links ): array {
 add_filter( 'plugin_action_links_' . plugin_basename( NOLG_PLUGIN ), 'nolg_add_setting_link' );
 
 /**
+ * Add links in row meta.
+ *
+ * @param array  $links List of links.
+ * @param string $file The requested plugin file name.
+ *
+ * @return array
+ */
+function nolg_add_row_meta_links( array $links, string $file ): array {
+	// bail if this is not our plugin.
+	if ( NOLG_PLUGIN !== WP_PLUGIN_DIR . DIRECTORY_SEPARATOR . $file ) {
+		return $links;
+	}
+
+	// add our custom links.
+	$row_meta = array(
+		'support' => '<a href="' . esc_url( Helper::get_plugin_support_url() ) . '" target="_blank" title="' . esc_attr__( 'Support Forum', 'nested-ordered-lists-for-block-editor' ) . '">' . esc_html__( 'Support Forum', 'nested-ordered-lists-for-block-editor' ) . '</a>',
+	);
+
+	/**
+	 * Filter the links in row meta of our plugin in plugin list.
+	 *
+	 * @since 2.1.0 Available since 2.1.0.
+	 * @param array $row_meta List of links.
+	 */
+	$row_meta = apply_filters( 'nolg_plugin_row_meta', $row_meta );
+
+	// return the resulting list of links.
+	return array_merge( $links, $row_meta );
+}
+add_filter( 'plugin_row_meta', 'nolg_add_row_meta_links', 10, 2 );
+
+/**
  * Register the frontend styles.
  *
  * @return void
@@ -192,7 +224,7 @@ function nolg_assets(): void {
 	// add translations for the backend-script.
 	if ( function_exists( 'wp_set_script_translations' ) ) {
 		wp_set_script_translations(
-			'nolg-backend',
+			'nolg-list',
 			'nested-ordered-lists-for-block-editor'
 		);
 	}

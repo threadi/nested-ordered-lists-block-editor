@@ -31,7 +31,7 @@ Run in main directory:
 ### update translation-file
 
 1. Open .po-file of the language in PoEdit.
-2. Go to "Translate > "Update from POT-file".
+2. Go to "Translate" > "Update from POT-file".
 3. After this the new entries are added to the language-file.
 
 ### export translation-file
@@ -84,4 +84,16 @@ Run `ant generate-css` in _build/_.
 
 ### Repair
 
-`vendor/bin/phpcbf --extensions=php --ignore=*/attributes/*,*/example/*,*/css/*,*/vendor/*,*/node_modules/*,*/svn/* --standard=ruleset.xml file`
+`vendor/bin/phpcbf --extensions=php --ignore=*/attributes/*,*/example/*,*/css/*,*/vendor/*,*/node_modules/*,*/svn/* --standard=ruleset.xml .`
+
+## Generate documentation
+
+`vendor/bin/wp-documentor parse app --format=markdown --output=docs/hooks.md --prefix=nolg_`
+
+## Check for WordPress VIP Coding Standards
+
+Hint: this check runs against the VIP-GO-platform which is not our target for this plugin. Many warnings can be ignored.
+
+### Run
+
+`vendor/bin/phpcs --extensions=php --ignore=*/attributes/*,*/example/*,*/css/*,*/vendor/*,*/node_modules/*,*/svn/* --standard=WordPress-VIP-Go .`
