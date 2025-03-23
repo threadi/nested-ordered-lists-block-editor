@@ -1,4 +1,4 @@
-# Use
+# Use the plugin "Nested ordered lists for Block Editor"
 
 This plugin adds new functions to the existing list block in the Block Editor. These can be found in the Block Editor on the block.
 
