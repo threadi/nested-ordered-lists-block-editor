@@ -1,4 +1,4 @@
-# Verwendung
+# Verwendung vom Plugin "Verschachtelte Listen im Block Editor"
 
 Dieses Plugin ergänzt den vorhandenen Listen-Block im Block Editor um neue Funktionen. Diese sind im Block Editor am Block zu finden.
 
