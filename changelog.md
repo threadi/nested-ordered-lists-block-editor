@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.1.2] - 12.11.2025
+
+### Changed
+
+- Compatibility set for WordPress 6.9
+
+### Fixed
+
+- Fixed missing import of sprintf
+
 ## [2.1.1] - 02.03.2025
 
 ### Fixed
