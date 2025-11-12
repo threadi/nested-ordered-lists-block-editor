@@ -7,7 +7,7 @@
 /**
  * Import language-support.
  */
-const { __ } = wp.i18n;
+const { __, sprintf } = wp.i18n;
 
 /**
  * Set more imports and constants.

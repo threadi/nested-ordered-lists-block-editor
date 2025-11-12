@@ -2,7 +2,7 @@
 Contributors: threadi
 Tags: list, ordered list, numbered list
 Requires at least: 6.6
-Tested up to: 6.8
+Tested up to: 6.9
 Requires PHP: 8.1
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -56,6 +56,7 @@ Yes, since version 2.0.0 you can use Bootstrap-, Dash- or FontAwesome-icons on e
 == Changelog ==
 
 = @@VersionNumber@@ =
-- Fixed missing class during uninstallation of plugin
+- Compatibility set for WordPress 6.9
+- Fixed missing import of sprintf
 
 [older changes](https://github.com/threadi/nested-ordered-lists-block-editor/blob/master/changelog.md)
