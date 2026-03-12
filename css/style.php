@@ -58,8 +58,13 @@ body :not(li) > ol.nolg-list {
 	text-indent: 0 !important;
 }
 
-body ol.nolg-list {
+body ol.nolg-list:not(.nolg-list-intent), body ol.nolg-list:not(.nolg-list-intent) ol {
 	padding-left: 0;
+}
+
+body ol.nolg-list li:before {
+	counter-increment: l1;
+	content: counters(l1, ".") ". ";
 }
 
 body ol.nolg-list[type=a1] > li:before {

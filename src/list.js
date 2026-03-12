@@ -468,9 +468,9 @@ function setAttributesInEditor( BlockListBlock ) {
 		}
 
 		// bail if no type is set.
-		if( type.length === 0 ) {
+		/*if( parentAttributes[0] && type.length === 0 ) {
 			return <BlockListBlock { ...props } />;
-		}
+		}*/
 
 		// collect classes for list.
 		let nolgClassName = 'nolg-style nolg-list';
@@ -531,9 +531,9 @@ const saveAttributesForFrontend = ( extraProps, blockType, attributes ) => {
 	}
 
 	// bail if type is empty.
-	if( type.length === 0 ) {
+	/*if( parentAttributes[0] && type.length === 0 ) {
 		return extraProps;
-	}
+	}*/
 
 	// add our style.
 	extraProps.className = classnames(extraProps.className, 'nolg-style');
