@@ -1,5 +1,16 @@
 # Changelog
 
+## [Unreleased]
+
+### Changed
+
+- Update dependencies
+
+### Fixed
+
+- Fixed missing support for digit numbers (thanks @qbattersby for the hint)
+- Fixed missing function of "with indention"
+
 ## [2.1.2] - 12.11.2025
 
 ### Changed

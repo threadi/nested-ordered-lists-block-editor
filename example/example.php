@@ -126,7 +126,7 @@ $preset = '<li>Erstens
                 body ol.nolg-list[start]'.$cssLevelSelector.$selector.' {
                     counter-reset:'.$cssCounterReset.' 0;
                 }
-    
+
                 body ol.nolg-list[start]'.$cssLevelSelector.$selector.' > li:before {
                     counter-increment: l'.($l-1).';
                     content: '.$cssContentUse.';
@@ -178,7 +178,7 @@ $preset = '<li>Erstens
                 body ol.nolg-list[start]'.$cssLevelSelector.$selector.' {
                     counter-reset:'.$cssCounterReset.' 0;
                 }
-    
+
                 body ol.nolg-list[start]'.$cssLevelSelector.$selector.' > li:before {
                     counter-increment: l'.($l-1).' '.$levelAddition.';
                     content: '.$cssContentUse.';
@@ -234,7 +234,7 @@ $preset = '<li>Erstens
 </ol>
 
 <h2 id="test1">ordered list without settings</h2>
-<ol class="nolg-list" style="counter-reset l1 0;">
+<ol class="nolg-list">
 	<?php echo $preset; ?>
 </ol>
 
