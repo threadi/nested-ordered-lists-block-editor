@@ -5,9 +5,12 @@
  * @package nested-ordered-lists-for-block-editor
  */
 
-// Exit if accessed directly.
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
+// prevent direct access.
+defined( 'ABSPATH' ) || exit;
+
+// do nothing if PHP-version is not 8.1 or newer.
+if ( PHP_VERSION_ID < 80100 ) {
+	return;
 }
 
 use nestedOrderedLists\Transient;

@@ -16,15 +16,17 @@ After checkout go through the following steps:
 
 1. increase the version number in _build/build.properties_.
 2. execute the following command in _build/_: `ant build`
-3. after that you will finde in the _release/_ directory a zip file which could be used in WordPress to install it.
+3. after that you will finde in the _release/_ directory a zip file, which could be used in WordPress to install it.
 
 ## Translations
 
-I recommend to use [PoEdit](https://poedit.net/) to translate texts for this plugin.
+I recommend translating this plugin in the [WordPress Translating tool](https://translate.wordpress.org/projects/wp-plugins/nested-ordered-lists-for-block-editor/).
+
+For manual translation I recommend to use [PoEdit](https://poedit.net/) to translate texts for this plugin.
 
 ### generate pot-file
 
-Run in main directory:
+Run in the main directory:
 
 `wp i18n make-pot . languages/nested-ordered-lists-for-block-editor.pot --exclude=src,svn`
 
@@ -42,7 +44,7 @@ Run in main directory:
 
 ### generate json-translation-files
 
-Run in main directory:
+Run in the main directory:
 
 `wp i18n make-json languages`
 
@@ -70,7 +72,7 @@ Run `ant generate-css` in _build/_.
 
 ## Known bugs
 
-* reversed orders numbered list with start numbers > 0 on level 2 will not work in frontend.
+* reversed orders numbered list with start numbers > 0 on level 2 will not work in the frontend.
 
 ## Check for WordPress Coding Standards
 
@@ -80,11 +82,11 @@ Run `ant generate-css` in _build/_.
 
 ### Run
 
-`vendor/bin/phpcs --extensions=php --ignore=*/attributes/*,*/example/*,*/css/*,*/vendor/*,*/node_modules/*,*/svn/* --standard=ruleset.xml .`
+`vendor/bin/phpcs --ignore= --standard=ruleset.xml .`
 
 ### Repair
 
-`vendor/bin/phpcbf --extensions=php --ignore=*/attributes/*,*/example/*,*/css/*,*/vendor/*,*/node_modules/*,*/svn/* --standard=ruleset.xml .`
+`vendor/bin/phpcbf --standard=ruleset.xml .`
 
 ## Generate documentation
 
@@ -92,7 +94,7 @@ Run `ant generate-css` in _build/_.
 
 ## Check for WordPress VIP Coding Standards
 
-Hint: this check runs against the VIP-GO-platform which is not our target for this plugin. Many warnings can be ignored.
+Hint: this check runs against the VIP-GO-platform, that is not our target for this plugin. Many warnings can be ignored.
 
 ### Run
 

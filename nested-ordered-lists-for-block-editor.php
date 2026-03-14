@@ -14,6 +14,9 @@
  * @package nested-ordered-lists-for-block-editor
  */
 
+// prevent direct access.
+defined( 'ABSPATH' ) || exit;
+
 use nestedOrderedLists\Helper;
 use nestedOrderedLists\Iconset_Base;
 use nestedOrderedLists\Iconsets;
@@ -25,11 +28,8 @@ use nestedOrderedLists\Languages;
 use nestedOrderedLists\Transients;
 use nestedOrderedLists\Update;
 
-// prevent direct access.
-defined( 'ABSPATH' ) || exit;
-
 // do nothing if PHP-version is not 8.1 or newer.
-if ( version_compare( PHP_VERSION, '8.1', '<' ) ) {
+if ( PHP_VERSION_ID < 80100 ) {
 	return;
 }
 

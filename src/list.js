@@ -80,7 +80,7 @@ function getCounterReset( props, attributes ) {
 }
 
 /**
- * Create array with all supported levels as attributes for the Block.
+ * Create an array with all supported levels as attributes for the Block.
  * Starting with level 2 as level 1 is coming from original Block as "start".
  *
  * @param n
@@ -114,7 +114,7 @@ function createElements(n, object){
             title = __('Set start level above first', 'nested-ordered-lists-for-block-editor');
         }
 
-        // add checkbox to enable this level.
+        // add a checkbox to enable this level.
         elements.push(
             <CheckboxControl key={[i] + 'checkbox'}
                              label={
@@ -128,6 +128,7 @@ function createElements(n, object){
                              onChange={value => onChangeLevelAttributeActive( object, i, value )}
                              disabled={!object.attributes.start}
                              title={title}
+							 __nextHasNoMarginBottom
             />
         );
 
@@ -148,6 +149,7 @@ function createElements(n, object){
                            disabled={!object.attributes.start}
                            title={title}
                            onChange={value => onChangeLevelAttributeValue( object, i, value )}
+						   __next40pxDefaultSize
             />
         )
     });
@@ -196,7 +198,7 @@ export const onChangeLevelAttributeValue = ( props, c, newValue ) => {
  * Add our custom list-attributes to the list of allowed attributes for this block.
  */
 const addListAttributes = ( settings, name ) => {
-    // Do nothing if it's another block than our defined ones.
+    // Do nothing if it is another block than our defined ones.
     if ( ! enableSidebarSelectOnBlocks.includes( name ) ) {
         return settings;
     }
@@ -259,7 +261,7 @@ const addOptionsToListBlock = createHigherOrderComponent( ( BlockEdit ) => {
 			});
 		}
 
-        // get parent settings for nested list, if available and enabled on parent.
+        // get parent settings for nested list, if available and enabled on the parent.
         const parentBlocks = wp.data.select( 'core/block-editor' ).getBlockParentsByBlockName(props.clientId, enableSidebarSelectOnBlocks);
         const parentAttributes = wp.data.select('core/block-editor').getBlocksByClientId(parentBlocks);
         let inheritedSettings = false;
@@ -308,31 +310,31 @@ const addOptionsToListBlock = createHigherOrderComponent( ( BlockEdit ) => {
                                 icon={ icons.lowerAlpha }
                                 label={ __( 'lowercase letters style', 'nested-ordered-lists-for-block-editor' ) }
                                 isActive={attributes.type === 'a1'}
-                                onClick={ value => onClickAttributeType('a1') }
+                                onClick={ () => onClickAttributeType('a1') }
                             />
                             <ToolbarButton
                                 icon= { icons.upperAlpha }
                                 label={ __( 'uppercase letters style', 'nested-ordered-lists-for-block-editor' ) }
                                 isActive={attributes.type === 'a2'}
-                                onClick={ value => onClickAttributeType('a2') }
+                                onClick={ () => onClickAttributeType('a2') }
                             />
                             <ToolbarButton
                                 icon={ icons.lowerRoman }
                                 label={ __( 'lowercase roman style', 'nested-ordered-lists-for-block-editor' ) }
                                 isActive={attributes.type === 'i1'}
-                                onClick={ value => onClickAttributeType('i1') }
+                                onClick={ () => onClickAttributeType('i1') }
                             />
                             <ToolbarButton
                                 icon={ icons.upperRoman }
                                 label={ __( 'uppercase roman style', 'nested-ordered-lists-for-block-editor' ) }
                                 isActive={attributes.type === 'i2'}
-                                onClick={ value => onClickAttributeType('i2') }
+                                onClick={ () => onClickAttributeType('i2') }
                             />
 							{active_iconset && <ToolbarButton
 								icon={ active_iconset.slug }
 								label={ active_iconset.name }
 								isActive={true}
-								onClick={ value => onClickAttributeType(active_iconset.slug) }
+								onClick={ () => onClickAttributeType(active_iconset.slug) }
 							/>}
                         </ToolbarGroup>
 						<ToolbarDropdownMenu
@@ -355,6 +357,7 @@ const addOptionsToListBlock = createHigherOrderComponent( ( BlockEdit ) => {
                                 } );
                             } }
 							help={__( 'If enabled you will be able to use nested ordered lists.', 'nested-ordered-lists-for-block-editor' )}
+							__nextHasNoMarginBottom
                         />
 						{nestedList && <CheckboxControl
                             label={__('Inherit settings', 'nested-ordered-lists-for-block-editor')}
@@ -365,6 +368,7 @@ const addOptionsToListBlock = createHigherOrderComponent( ( BlockEdit ) => {
                                 } );
                             } }
 							help={__( 'If enabled the settings of the main list will be inherited to the child lists.', 'nested-ordered-lists-for-block-editor' )}
+							__nextHasNoMarginBottom
                         />}
                         {nestedList &&
                             <CheckboxControl
@@ -376,6 +380,7 @@ const addOptionsToListBlock = createHigherOrderComponent( ( BlockEdit ) => {
                                     });
                                 }}
 								help={__( 'If enabled the list will be displayed with indentation.', 'nested-ordered-lists-for-block-editor' )}
+								__nextHasNoMarginBottom
                             />
                         }
                         {nestedList && createElements(list_max_level, props)}
@@ -434,7 +439,7 @@ function setAttributesInEditor( BlockListBlock ) {
 			return <BlockListBlock { ...props } />;
 		}
 
-		// get parent settings for nested list, if available and enabled on child.
+		// get parent settings for nested list, if available and enabled on the child.
 		const parentBlocks = wp.data.select( 'core/block-editor' ).getBlockParentsByBlockName(props.clientId, enableSidebarSelectOnBlocks );
 		const parentAttributes = wp.data.select('core/block-editor').getBlocksByClientId(parentBlocks);
 		if( parentAttributes[0] && parentAttributes[0].attributes.nestedList && parentAttributes[0].attributes.inheritSettings ) {
@@ -450,7 +455,7 @@ function setAttributesInEditor( BlockListBlock ) {
 		}
 
 		// get attributes.
-		const { ordered, nestedList, listIntent, type } = props.attributes;
+		const { ordered, nestedList, listIntent } = props.attributes;
 
 		// bail if list is not ordered.
 		if( ! ordered ) {
@@ -461,16 +466,6 @@ function setAttributesInEditor( BlockListBlock ) {
 		if( ! nestedList ) {
 			return <BlockListBlock { ...props } />;
 		}
-
-		// bail if type is unknown.
-		if( type === undefined ) {
-			return <BlockListBlock { ...props } />;
-		}
-
-		// bail if no type is set.
-		/*if( parentAttributes[0] && type.length === 0 ) {
-			return <BlockListBlock { ...props } />;
-		}*/
 
 		// collect classes for list.
 		let nolgClassName = 'nolg-style nolg-list';
@@ -494,7 +489,7 @@ wp.hooks.addFilter(
 );
 
 /**
- * Save custom attribute for output in frontend.
+ * Save our custom attributes for output in the frontend.
  */
 const saveAttributesForFrontend = ( extraProps, blockType, attributes ) => {
     // bail if block is not core/list.
@@ -502,7 +497,7 @@ const saveAttributesForFrontend = ( extraProps, blockType, attributes ) => {
         return extraProps;
 	}
 
-	// get parent settings for nested list, if available and enabled on parent.
+	// get parent settings for nested list, if available and enabled on the parent.
 	const parentBlocks = wp.data.select( 'core/block-editor' ).getBlockParentsByBlockName(attributes.clientId, enableSidebarSelectOnBlocks);
 	const parentAttributes = wp.data.select('core/block-editor').getBlocksByClientId(parentBlocks);
 	if( parentAttributes[0] && parentAttributes[0].attributes.nestedList && parentAttributes[0].attributes.inheritSettings ) {
@@ -513,7 +508,7 @@ const saveAttributesForFrontend = ( extraProps, blockType, attributes ) => {
 	}
 
 	// get attributes.
-	const { ordered, nestedList, listIntent, type } = attributes;
+	const { ordered, nestedList, listIntent } = attributes;
 
     // bail if list is not ordered.
     if( ! ordered ) {
@@ -524,16 +519,6 @@ const saveAttributesForFrontend = ( extraProps, blockType, attributes ) => {
 	if( ! nestedList ) {
 		return extraProps;
 	}
-
-	// bail if type is unknown.
-	if( type === undefined ) {
-		return extraProps;
-	}
-
-	// bail if type is empty.
-	/*if( parentAttributes[0] && type.length === 0 ) {
-		return extraProps;
-	}*/
 
 	// add our style.
 	extraProps.className = classnames(extraProps.className, 'nolg-style');

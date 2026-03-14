@@ -24,7 +24,7 @@ import { enableSidebarSelectOnBlocks } from './helper';
  * Add our custom list-item-attributes to the items for this block.
  */
 const addListItemAttributes = ( settings, name ) => {
-	// Do nothing if it's another block than our defined ones.
+	// Do nothing if it is another block than our defined ones.
 	if ( 'core/list-item' !== name ) {
 		return settings;
 	}
@@ -121,7 +121,7 @@ const addOptionsToListItemBlock = createHigherOrderComponent( ( BlockEdit ) => {
 							disableDashicon={!dashicons}
 							disableFontAwesome={!fontawesome}
 						/>
-						<Button disabled={!attributes.icon} variant="secondary" onClick={ (value) => onClickRemoveIcon() } text={ __( 'Remove the chosen icon', 'nested-ordered-lists-for-block-editor' ) }></Button>
+						<Button disabled={!attributes.icon} variant="secondary" onClick={ () => onClickRemoveIcon() } text={ __( 'Remove the chosen icon', 'nested-ordered-lists-for-block-editor' ) } size="default"></Button>
 					</PanelBody>
 				</InspectorControls>
 				}

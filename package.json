@@ -1,6 +1,6 @@
 {
 	"name": "@threadi/nested-ordered-lists-for-block-editor",
-	"version": "2.0.0",
+	"version": "2.2.0",
 	"description": "Adds support for nested ordered lists with icons in List Block.",
 	"author": "threadi",
 	"license": "GPL-2.0-or-later",

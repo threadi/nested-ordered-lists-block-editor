@@ -1,5 +1,5 @@
 /**
- * Set max level which should be used by this block-addition.
+ * Set the max level, which should be used by this block-addition.
  *
  * @type {number}
  */
