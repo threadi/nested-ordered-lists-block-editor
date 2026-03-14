@@ -55,7 +55,6 @@ jobs:
           rm -fr src
           rm changelog.md
           rm readme.md
-          rm ruleset.xml
           rm CODE_OF_CONDUCT.md
 
       - name: Generate autoloader
