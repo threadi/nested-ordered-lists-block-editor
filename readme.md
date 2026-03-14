@@ -1,22 +1,52 @@
-# Nested ordered lists
+# Nested Ordered Lists for Block Editor
 
-This repository is the database for the plugin _Nested ordered lists_. This provides a Gutenberg block-addition to use the list-block with nested ordered lists and some list-styles.
+## About
+
+This repository provides the features of the WordPress plugin _Nested Ordered Lists for Block Editor_. The repository is used as a basis for deploying the plugin to the WordPress repository. It is not intended to run as a plugin as it is, even if that is possible for development.
 
 ## Usage
 
 After checkout go through the following steps:
 
+### By hand
+
+Run the following commands in this order:
+
+1. `composer install`
+2. `npm i`
+3. `npm run build`
+4. after that the plugin can be activated in WordPress.
+
+### Using ant
+
 1. copy _build/build.properties.dist_ to _build/build.properties_.
 2. modify the build/build.properties file - note the comments in the file.
 3. execute the command in _build/_: `ant init`
-4. execute the command in the plugin-directory `npm start`
-5. after that the plugin can be activated in WordPress
+4. after that the plugin can be activated in WordPress
 
 ## Release
+
+### From local environment by hand
+
+1. `composer install`
+2. `npm i`
+3. `npm run build`
+4. `vendor/bin/phpstan analyse`
+5. `vendor/bin/phpcbf --standard=ruleset.xml .`
+6. `vendor/bin/phpcs --standard=ruleset.xml .`
+7. Set version nummer in _readme.txt_ and _external-files-in-media-library.php_.
+8. Create the release ZIP with all necessary folders and files.
+
+### From local environment with ant
 
 1. increase the version number in _build/build.properties_.
 2. execute the following command in _build/_: `ant build`
 3. after that you will finde in the _release/_ directory a zip file, which could be used in WordPress to install it.
+
+### On GitHub
+
+1. Create a new tag with the new version number.
+2. The release zip will be created by a GitHub action.
 
 ## Translations
 
@@ -28,7 +58,7 @@ For manual translation I recommend to use [PoEdit](https://poedit.net/) to trans
 
 Run in the main directory:
 
-`wp i18n make-pot . languages/nested-ordered-lists-for-block-editor.pot --exclude=src,svn`
+`wp i18n make-pot . languages/nested-ordered-lists-for-block-editor.pot --exclude=src/,svn/`
 
 ### update translation-file
 
@@ -90,7 +120,7 @@ Run `ant generate-css` in _build/_.
 
 ## Generate documentation
 
-`vendor/bin/wp-documentor parse app --format=markdown --output=docs/hooks.md --prefix=nolg_`
+`vendor/bin/wp-documentor parse . --exclude=vendor --exclude=node_modules --exclude=svn --format=markdown --output=docs/hooks.md --prefix=nolg_`
 
 ## Check for WordPress VIP Coding Standards
 

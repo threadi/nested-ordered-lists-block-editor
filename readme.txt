@@ -41,7 +41,7 @@ The development repository is on [GitHub](https://github.com/threadi/nested-orde
 
 No, the plugin is intended solely for Block Editor aka Gutenberg and always will be.
 
-= Can I use other blocks between the list items, e.g. for a description text? =
+= Can I use other blocks between the list items, e.g., for a description text? =
 
 Yes, as follows: enter the desired content between the individual list blocks. The list blocks will now all begin with "1". For the 2nd list block, enter the number 2 in the "Initial value" field. This will update the view in the block accordingly. Now enter "3" in the next list block, etc.
 
@@ -56,7 +56,10 @@ Yes, since version 2.0.0 you can use Bootstrap-, Dash- or FontAwesome-icons on e
 == Changelog ==
 
 = @@VersionNumber@@ =
-- Compatibility set for WordPress 6.9
-- Fixed missing import of sprintf
+- Set compatibility with WordPress 7.0
+- Optimized script handling
+- Update dependencies
+- Fixed missing support for digit numbers (thanks @qbattersby for the hint)
+- Fixed missing function of "with indention"
 
 [older changes](https://github.com/threadi/nested-ordered-lists-block-editor/blob/master/changelog.md)
