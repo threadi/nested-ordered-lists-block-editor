@@ -147,7 +147,12 @@
 			<zipfileset dir="${src.dir}/css" prefix="${plugin.slug}/css">
 				<exclude name="**/.gitkeep" />
 				<exclude name="**/style.php" />
+				<exclude name="**/style.css" />
 				<exclude name="**/minify_css.php" />
+				<exclude name="**/bootstrap.css" />
+				<exclude name="**/fontawesome.css" />
+				<exclude name="**/dashicons.css" />
+				<exclude name="**/iconpicker.css" />
 			</zipfileset>
 			<zipfileset dir="${src.dir}/gfx" prefix="${plugin.slug}/gfx" />
 			<zipfileset dir="${src.dir}/vendor" includes="autoload.php" fullpath="${plugin.slug}/vendor/autoload.php" />
@@ -156,6 +161,7 @@
 			<zipfileset dir="${src.dir}" includes="readme-release.txt" fullpath="${plugin.slug}/readme.txt" />
 			<zipfileset dir="${src.dir}" includes="${plugin.slug}-release.php" fullpath="${plugin.slug}/${plugin.slug}.php" />
 		</zip>
+		<antcall target="autoloader-generation-dev" />
 		<delete file="${src.dir}/${plugin.slug}-release.php"/>
 		<delete file="${src.dir}/readme-release.txt"/>
 	</target>

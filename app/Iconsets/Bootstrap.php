@@ -54,8 +54,8 @@ class Bootstrap extends Iconset_Base implements Iconset {
 			),
 			array(
 				'handle' => 'bootstrap-custom',
-				'url'    => plugins_url( '/css/bootstrap.css', NOLG_PLUGIN ),
-				'path'   => plugin_dir_path( NOLG_PLUGIN ) . '/css/bootstrap.css',
+				'url'    => plugins_url( '/css/bootstrap.min.css', NOLG_PLUGIN ),
+				'path'   => plugin_dir_path( NOLG_PLUGIN ) . '/css/bootstrap.min.css',
 			),
 		);
 

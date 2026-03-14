@@ -54,8 +54,8 @@ class Fontawesome extends Iconset_Base implements Iconset {
 			),
 			array(
 				'handle' => 'fontawesome-custom',
-				'url'    => plugins_url( '/css/fontawesome.css', NOLG_PLUGIN ),
-				'path'   => plugin_dir_path( NOLG_PLUGIN ) . '/css/fontawesome.css',
+				'url'    => plugins_url( '/css/fontawesome.min.css', NOLG_PLUGIN ),
+				'path'   => plugin_dir_path( NOLG_PLUGIN ) . '/css/fontawesome.min.css',
 			),
 		);
 

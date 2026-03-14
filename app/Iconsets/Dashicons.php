@@ -53,8 +53,8 @@ class Dashicons extends Iconset_Base implements Iconset {
 			),
 			array(
 				'handle' => 'dashicons-custom',
-				'url'    => plugins_url( '/css/dashicons.css', NOLG_PLUGIN ),
-				'path'   => plugin_dir_path( NOLG_PLUGIN ) . '/css/dashicons.css',
+				'url'    => plugins_url( '/css/dashicons.min.css', NOLG_PLUGIN ),
+				'path'   => plugin_dir_path( NOLG_PLUGIN ) . '/css/dashicons.min.css',
 			),
 		);
 
