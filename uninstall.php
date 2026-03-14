@@ -29,7 +29,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 // delete the content of all taxonomies.
 global $wpdb;
-$terms = $wpdb->get_results(
+$nolg_terms = $wpdb->get_results(
 	$wpdb->prepare(
 		'SELECT ' . $wpdb->terms . '.term_id
 				FROM ' . $wpdb->terms . '
@@ -43,11 +43,11 @@ $terms = $wpdb->get_results(
 );
 
 // delete them.
-foreach ( $terms as $term ) {
+foreach ( $nolg_terms as $nolg_term ) {
 	$wpdb->delete(
 		$wpdb->terms,
 		array(
-			'term_id' => $term->term_id,
+			'term_id' => $nolg_term->term_id,
 		)
 	);
 }
@@ -59,15 +59,15 @@ $wpdb->delete( $wpdb->term_taxonomy, array( 'taxonomy' => 'nolg_icon_set' ), arr
 delete_option( 'nolg_icon_set_children' );
 
 // delete transients.
-foreach ( Transients::get_instance()->get_transients() as $transient ) {
+foreach ( Transients::get_instance()->get_transients() as $nolg_transient ) {
 	// bail if object is not a transient object.
-	if ( ! $transient instanceof Transient ) {
+	if ( ! $nolg_transient instanceof Transient ) {
 		continue;
 	}
 
 	// delete the dismiss setting.
-	$transient->delete_dismiss();
+	$nolg_transient->delete_dismiss();
 
 	// delete the transient.
-	$transient->delete();
+	$nolg_transient->delete();
 }

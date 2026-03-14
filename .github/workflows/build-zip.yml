@@ -23,10 +23,6 @@ jobs:
           composer update
           npm i
           npm run build
-          cd css/
-          /usr/bin/php style.php 5 > style.css
-          /usr/bin/php minify_css.php style.css
-          cd ..
           mkdir -p css/fontawesome/
           mkdir -p css/webfonts/
           cp node_modules/@fortawesome/fontawesome-free/css/all.css css/fontawesome/fontawesome6.css
@@ -35,6 +31,32 @@ jobs:
           cp node_modules/bootstrap-icons/font/bootstrap-icons.css css/bootstrap/bootstrap-icons.css
           cp -r node_modules/bootstrap-icons/font/fonts/ css/bootstrap/
           cp node_modules/wordpress-icon-picker/dist/style.css css/iconpicker.css
+          cd css/
+          /usr/bin/php style.php 5 > style.css
+          /usr/bin/php minify_css.php style.css
+          /usr/bin/php minify_css.php bootstrap.css
+          /usr/bin/php minify_css.php dashicons.css
+          /usr/bin/php minify_css.php fontawesome.css
+          /usr/bin/php minify_css.php iconpicker.css
+          rm bootstrap.css
+          rm dashicons.css
+          rm fontawesome.css
+          rm iconpicker.css
+          rm style.php
+          rm minify_css.php
+          cd ..
+          rm -fr .git
+          rm -fr assets
+          rm -fr build
+          rm -fr releases
+          rm -fr svn
+          rm -fr languages
+          rm -fr example
+          rm -fr src
+          rm changelog.md
+          rm readme.md
+          rm ruleset.xml
+          rm CODE_OF_CONDUCT.md
 
       - name: Generate autoloader
         run: composer dump-autoload -oa --no-dev
@@ -63,22 +85,9 @@ jobs:
 
       - name: Create ZIP release
         run: |
-          rm -fr .git
-          rm -fr assets
-          rm -fr build
-          rm -fr releases
-          rm -fr svn
-          rm -fr languages
-          rm -fr example
-          rm -fr src
-          rm css/style.php
-          rm css/minify_css.php
-          rm changelog.md
-          rm readme.md
-          rm ruleset.xml
           cd ..
           mv ${{ github.event.repository.name }} nested-ordered-lists-for-block-editor
-          zip -r -q nested-ordered-lists-for-block-editor_${{ github.ref_name }}.zip nested-ordered-lists-for-block-editor/* -x "*/.git/*" "*/.github/*" "*/blocks/*/src/*" "*/docs/*" "*/phpcs.xml" "*/composer.json" "*/composer.lock" "*/package.json" "*/package-lock.json" "*/ruleset.xml" "*/.gitignore" "*/vendor/*" "*/node_modules/*" "/.editorconfig"
+          zip -r -q nested-ordered-lists-for-block-editor_${{ github.ref_name }}.zip nested-ordered-lists-for-block-editor/* -x "*/.git/*" "*/.github/*" "*/blocks/*/src/*" "*/docs/*" "*/phpcs.xml" "*/composer.lock" "*/package.json" "*/package-lock.json" "*/ruleset.xml" "*/.gitignore" "*/vendor/*" "*/node_modules/*" "/.editorconfig"
           zip -ur nested-ordered-lists-for-block-editor_${{ github.ref_name }}.zip nested-ordered-lists-for-block-editor/vendor/autoload.php
           zip -ur nested-ordered-lists-for-block-editor_${{ github.ref_name }}.zip nested-ordered-lists-for-block-editor/vendor/composer/*
           mv nested-ordered-lists-for-block-editor ${{ github.event.repository.name }}

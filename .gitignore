@@ -1,5 +1,9 @@
 attributes/
 build/build.properties
 css/style.css
+css/bootstrap/
+css/fontawesome/
+css/webfonts/
+css/*.min.css
 languages/*.json
 *.zip

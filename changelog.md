@@ -6,6 +6,7 @@
 
 - Set compatibility with WordPress 7.0
 - Optimized script handling
+- Using only minimized CSS-files for each supported iconset
 - Update dependencies
 
 ### Fixed

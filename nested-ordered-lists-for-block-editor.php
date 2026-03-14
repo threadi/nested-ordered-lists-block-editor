@@ -120,20 +120,12 @@ add_filter( 'plugin_row_meta', 'nolg_add_row_meta_links', 10, 2 );
  * @return void
  */
 function nolg_frontend_style(): void {
-	// get the file name for the style file.
-	$css_file = 'css/style.css';
-
-	// if debug-mode is not enabled, use minified file.
-	if ( ! defined( 'WP_DEBUG' ) || ( defined( 'WP_DEBUG' ) && ! WP_DEBUG ) ) {
-		$css_file = str_replace( '.css', '.min.css', $css_file );
-	}
-
 	// enqueue the main style file.
 	wp_register_style(
 		'nolg-list',
-		plugins_url( $css_file, __FILE__ ),
+		plugins_url( 'css/style.min.css', __FILE__ ),
 		array(),
-		Helper::get_file_version( plugin_dir_path( __FILE__ ) . $css_file )
+		Helper::get_file_version( plugin_dir_path( __FILE__ ) . 'css/style.min.css' )
 	);
 
 	// enqueue the iconset files.
@@ -199,9 +191,9 @@ function nolg_assets(): void {
 		// add icon picker style.
 		wp_enqueue_style(
 			'nolg-iconpicker',
-			plugins_url( 'css/iconpicker.css', __FILE__ ),
+			plugins_url( 'css/iconpicker.min.css', __FILE__ ),
 			array(),
-			Helper::get_file_version( plugin_dir_path( __FILE__ ) . 'css/iconpicker.css' )
+			Helper::get_file_version( plugin_dir_path( __FILE__ ) . 'css/iconpicker.min.css' )
 		);
 
 		// add ja-variables for block editor.
