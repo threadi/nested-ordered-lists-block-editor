@@ -1,5 +1,5 @@
 /**
- * Define which blocks will be changed by the following functions.
+ * Define, which blocks will be changed by the following functions.
  * Only core/list will be changed.
  *
  * @type {string[]}

@@ -1,9 +1,11 @@
 # Changelog
 
-## [Unreleased]
+## [2.2.0] - 14.03.2026
 
 ### Changed
 
+- Set compatibility with WordPress 7.0
+- Optimized script handling
 - Update dependencies
 
 ### Fixed

@@ -3,6 +3,22 @@
 
     <description>Nested Ordered Lists for Block Editor Coding Standards</description>
 
+	<!--
+        Only scan files with .php extension.
+    -->
+	<arg name="extensions" value="php" />
+
+	<!--
+		Directories to exclude.
+	-->
+	<exclude-pattern>*/attributes/*</exclude-pattern>
+	<exclude-pattern>*/css/*</exclude-pattern>
+	<exclude-pattern>*/example/*</exclude-pattern>
+	<exclude-pattern>*/node_modules/*</exclude-pattern>
+	<exclude-pattern>*/svn/*</exclude-pattern>
+	<exclude-pattern>*/vendor/*</exclude-pattern>
+
+	<!-- use these rules -->
     <rule ref="WordPress-Docs"/>
     <rule ref="WordPress-Extra"/>
 	<rule ref="WordPress">
