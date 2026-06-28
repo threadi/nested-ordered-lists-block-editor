@@ -56,11 +56,6 @@ Yes, since version 2.0.0 you can use Bootstrap-, Dash- or FontAwesome-icons on e
 == Changelog ==
 
 = @@VersionNumber@@ =
-- Set compatibility with WordPress 7.0
-- Optimized script handling
-- Using only minimized CSS-files for each supported iconset
-- Update dependencies
-- Fixed missing support for digit numbers (thanks @qbattersby for the hint)
-- Fixed missing function of "with indention"
+- Updated dependencies
 
 [older changes](https://github.com/threadi/nested-ordered-lists-block-editor/blob/master/changelog.md)
