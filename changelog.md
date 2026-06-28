@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.2.1] - 28.06.2026
+
+### Changed
+
+- Updated dependencies
+
 ## [2.2.0] - 14.03.2026
 
 ### Changed
@@ -7,7 +13,7 @@
 - Set compatibility with WordPress 7.0
 - Optimized script handling
 - Using only minimized CSS-files for each supported iconset
-- Update dependencies
+- Updated dependencies
 
 ### Fixed
 
